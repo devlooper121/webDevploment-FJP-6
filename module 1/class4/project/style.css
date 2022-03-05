@@ -2,18 +2,28 @@ body{
     margin: 0 2%;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+#headTag{
+    border: 2px solid black;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 15px;
+    font-weight: 100;
+    border-top-left-radius: 30px;
+    transition: all ease-in-out 400ms;
+}
+#headTag:hover{
+    background-color: blue;
+    color: white;
+}
 .heading {
     display: flex;
     width: 100%;
     justify-content: space-between;
     margin-left: 1%;
-    font-size: 1.2em;
+    font-size: 1.2rem;
     
 }
-.heading>h1{
-    padding-top:1% ;
-    font-weight: 100;
-}
+
 .navbar{
     display: flex;
     justify-content: right;
