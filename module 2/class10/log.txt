@@ -1,0 +1,61 @@
+all files in Downloads.
+
+04f1d46d-453e-44f3-99ab-b1938473b368.png --> a Image file.
+3547.pdf --> a Document file.
+3549.pdf --> a Document file.
+B.Tech ECE 4th year.pdf --> a Document file.
+ChromeSetup.exe --> a Application file.
+codeblocks-20.03mingw-setup.exe --> a Application file.
+desktop.ini --> a other file type.
+dhee.jpg --> a Image file.
+dheeraj3.jpg --> a Image file.
+dheeraj4.jpg --> a Image file.
+Dicee Challenge - Starting Files.zip --> a Compressed file.
+Drum Kit Starting Files.zip --> a Compressed file.
+eclipse-inst-jre-win64.exe --> a Application file.
+Firefox Installer.exe --> a Application file.
+foc paper.pdf --> a Document file.
+Git-2.34.1-64-bit.exe --> a Application file.
+GrammarlyInstaller.cg9rHb4dezff6rh9ito80682.exe --> a Application file.
+jdk-17_windows-x64_bin.exe --> a Application file.
+main.c --> a Software file.
+mingw-w64-install.exe --> a Application file.
+msys2-x86_64-20211130.exe --> a Application file.
+RSE(7rd)Dec2014.pdf --> a Document file.
+RSE(7rd)Dec2016.pdf --> a Document file.
+RSE(7rd)May2017.pdf --> a Document file.
+RSE(7th)Dec2018.pdf --> a Document file.
+Shingeki-no-Kyojin-S04E17.srt --> a other file type.
+Snake-and-Ladder.zip --> a Compressed file.
+Telegram Desktop --> a Directory
+theme-1115.epf --> a other file type.
+tsetup-x64.3.4.3.exe --> a Application file.
+vlc-3.0.16-win64.exe --> a Application file.
+WhatsApp Image 2022-03-13 at 5.56.09 PM.jpeg --> a Image file.
+WhatsApp Image 2022-03-13 at 6.31.36 PM (1).jpeg --> a Image file.
+WhatsApp Image 2022-03-13 at 6.31.36 PM.jpeg --> a Image file.
+Windows11InstallationAssistant.exe --> a Application file.
+WindowsPCHealthCheckSetup.msi --> a other file type.
+[AnimeFlix.in]Food.Wars.S01.Ep.01.Dual.Audio.10bit.BD720p.x265.mkv --> a Video file.
+[AnimeFlix.in]Food.Wars.S01.Ep.02.Dual.Audio.10bit.BD720p.x265.mkv --> a Video file.
+[AnimeFlix.in]Food.Wars.S01.Ep.03.Dual.Audio.10bit.BD720p.x265.mkv --> a Video file.
+[AnimeFlix.in]Food.Wars.S01.Ep.04.Dual.Audio.10bit.BD720p.x265.mkv --> a Video file.
+[AnimeFlix.in]Food.Wars.S01.Ep.05.Dual.Audio.10bit.BD720p.x265.mkv --> a Video file.
+[AnimeFlix.in]Food.Wars.S01.Ep.06.Dual.Audio.10bit.BD720p.x265.mkv --> a Video file.
+[AnimeFlix.in]Food.Wars.S01.Ep.07.Dual.Audio.10bit.BD720p.x265.mkv --> a Video file.
+[AnimeFlix.in]Shingeki no Kyojin The Final Season - 01 (Dual Audio 10bit 1080p x265).mkv --> a Video file.
+[AnimeFlix.in]Shingeki no Kyojin The Final Season - 02 (Dual Audio 10bit 1080p x265).mkv --> a Video file.
+[AnimeFlix.in]Shingeki no Kyojin The Final Season - 03 (Dual Audio 10bit 1080p x265).mkv --> a Video file.
+[AnimeFlix.in]Shingeki no Kyojin The Final Season - 04 (Dual Audio 10bit 1080p x265).mkv --> a Video file.
+[AnimeFlix.in]Shingeki no Kyojin The Final Season - 05 (Dual Audio 10bit 1080p x265).mkv --> a Video file.
+[AnimeFlix.in]Shingeki no Kyojin The Final Season - 06 (Dual Audio 10bit 1080p x265).mkv --> a Video file.
+[AnimeFlix.in]Shingeki no Kyojin The Final Season - 07 (Dual Audio 10bit 1080p x265).mkv --> a Video file.
+[AnimeFlix.in]Shingeki no Kyojin The Final Season - 08 (Dual Audio 10bit 1080p x265).mkv --> a Video file.
+[AnimeFlix.in]Shingeki no Kyojin The Final Season - 09 (Dual Audio 10bit 1080p x265).mkv --> a Video file.
+[AnimeFlix.in]Shingeki no Kyojin The Final Season - 10 (Dual Audio 10bit 1080p x265).mkv --> a Video file.
+[AnimeFlix.in]Shingeki no Kyojin The Final Season - 11 (Dual Audio 10bit 1080p x265).mkv --> a Video file.
+[AnimeFlix.in]Shingeki no Kyojin The Final Season - 12 (Dual Audio 10bit 1080p x265).mkv --> a Video file.
+[AnimeFlix.in]Shingeki no Kyojin The Final Season - 13 (Dual Audio 10bit 1080p x265).mkv --> a Video file.
+[AnimeFlix.in]Shingeki no Kyojin The Final Season - 14 (Dual Audio 10bit 1080p x265).mkv --> a Video file.
+[AnimeFlix.in]Shingeki no Kyojin The Final Season - 15 (Dual Audio 10bit 1080p x265).mkv --> a Video file.
+[AnimeFlix.in]Shingeki no Kyojin The Final Season - 16 (Dual Audio 10bit 1080p x265).mkv --> a Video file.

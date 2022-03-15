@@ -2,7 +2,7 @@
 //make folder for each element in the given array and inside each folder make 4 files of that type
 
 let arrFilesType=["audio","video","image","software","documents","applications","other"];
-let arrFilesExt=[".mp3",".mp4",".img",".zip",".pdf",".app",".temp"];
+let arrFilesExt=[".mp3",".mp4",".jpeg",".apk",".pdf",".deb",".zip"];
 
 
 const path = require("path");
@@ -17,8 +17,9 @@ for(let i = 0; i < arrFilesType.length; i++){
     if(!fs.existsSync(nextFolderName)){
         fs.mkdirSync(nextFolderName);
     }
+    // now we are generating 4 files of each type
     for(let j = 0; j < 4; j++){
-        let eachFileName = path.join(nextFolderName,j+""+arrFilesType[i]+arrFilesExt[i]);
+        let eachFileName = path.join(nextFolderName,arrFilesType[i]+j+arrFilesExt[i]);
         fs.writeFileSync(eachFileName,"this is a "+arrFilesType[i]+" type file");
     }
 }
