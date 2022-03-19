@@ -21,23 +21,6 @@ const possibleExtentions = {
 let cwd = __dirname;
 //Todo 3 : Read the directory and store in a variable
 let allFiles = fs.readdirSync(cwd);
-// // create all folder first
-
-// for(key in possibleExtentions){
-//     let folderPath = path.join(cwd,key);
-//     if(!fs.existsSync(folderPath))
-//         fs.mkdirSync(folderPath);
-//     // testing area
-//     // we first make a text file and write log
-//     let textFilePath = path.join(folderPath,"log.txt");
-//     let content = "Only ["+possibleExtentions[key]+ "] \nTypes files.\n";
-//     // console.log();
-//     fs.writeFileSync(textFilePath,content);
-// }
-
-// let otherFolderPath = path.join(cwd,"Others")
-// if(!fs.existsSync(otherFolderPath))
-//     fs.mkdirSync(otherFolderPath);
 
 // todo 4: now excess every file and put files in their crosponding folder 
 for(var i = 0; i < allFiles.length ;i++){
@@ -85,7 +68,7 @@ for(var i = 0; i < allFiles.length ;i++){
         if(!fs.existsSync(otherFolderPath))
             fs.mkdirSync(otherFolderPath);
 
-        // todo 6: copy and delete
+        // todo 5.1: copy and delete
 
         let destPath = path.join(otherFolderPath,file);
 

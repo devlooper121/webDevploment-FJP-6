@@ -1,0 +1,8 @@
+Only [.deb,.rpm,.exe,.pkg,.msi,.iso,.gz] 
+Types files.
+
+applications0 copy.deb
+applications0.deb
+applications1.deb
+applications2.deb
+applications3.deb

@@ -1,0 +1,1 @@
+this is a applications type file

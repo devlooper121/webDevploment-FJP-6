@@ -5,11 +5,11 @@ const path = require("path");
 // console.log(fs);
 // create a dir
 
-if(!fs.existsSync("newDirByCode")){
-    fs.mkdirSync("newDirByCode");
-}else{
-    console.log("This dir exist already.")
-}
+// if(!fs.existsSync("newDirByCode")){
+//     fs.mkdirSync("newDirByCode");
+// }else{
+//     console.log("This dir exist already.")
+// }
 // read directory
 let patOfDirToRead = "C:\\Users\\dheer\\OneDrive\\Documents\\Develoment\\FJP-6\\module 1"
 
@@ -22,10 +22,10 @@ console.log(contentOfDir);
 
 // copy file
 
-let sourcePath = path.join(__dirname,"newDirByCode","abc.txt");
+// let sourcePath = path.join(__dirname,"newDirByCode","abc.txt");
 
-let destinationPath = path.join(__dirname,"..","..","abc.txt"); // adding ".." will take one folder back from cwdr or __dirname 
-console.log(sourcePath);
-console.log(destinationPath);
+// let destinationPath = path.join(__dirname,"..","..","abc.txt"); // adding ".." will take one folder back from cwdr or __dirname 
+// console.log(sourcePath);
+// console.log(destinationPath);
 
-fs.copyFileSync(sourcePath, destinationPath);
+// fs.copyFileSync(sourcePath, destinationPath);
