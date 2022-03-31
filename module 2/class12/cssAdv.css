@@ -1,0 +1,16 @@
+div{
+    width:max-content;
+    border: 2px solid blue;
+    padding: 10px;
+}
+.parent{
+    /* overflow: hidden;
+     */
+     border-color: red;
+     padding: 10px;
+    border-width: 2px;
+}
+.child{
+    padding: 10px;
+    border-color: green;
+}
