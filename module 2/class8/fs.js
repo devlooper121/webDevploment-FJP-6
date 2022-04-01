@@ -14,7 +14,7 @@ fs.writeFileSync(newFilePath2, "abcdefghijklmnopqrstuvwxyz");
 // reading file
 
 let content = fs.readFileSync(newFilePath2, "utf-8");
-console.log(content);
+console.log(content.split("\n"));
 // updating existing file
 
 fs.appendFileSync(newFilePath2, "\nABCDEFGHIJKLMNOPQRSTUVWXYZ")
@@ -24,3 +24,5 @@ console.log(content);
 // D- delete file
 
 fs.unlinkSync(newFilePath);
+
+console.log(fs.readFileSync(path.join(__dirname,"path.js"),"utf-8"));

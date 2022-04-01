@@ -44,9 +44,7 @@ function cb2(error, response, html2){
                 // console.log("name : ", name, "run : ",run, "ball : ", ball);
                 processPlayer(name, run,ball, four, six);
             }
-            
         }
-        
     }
 }
 
@@ -69,7 +67,7 @@ function processPlayer(name,run, ball, four, six){
         }
     }
 }
-
+// this is for printing all data after waiting 1min
 setTimeout(function () {
     console.log(leaderBoard);
 },60000);
