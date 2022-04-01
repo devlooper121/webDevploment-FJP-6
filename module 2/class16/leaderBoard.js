@@ -16,26 +16,15 @@ function cb(error, response, html){
         // every match link 
         let allMatchLink = document.querySelectorAll(".match-cta-container > a:nth-child(3)");
         const websiteLink = "https://www.espncricinfo.com/";
-        let allMatchFullLink = [];
-        for(let i = 0; i < 3 ; i++){
+        // let allMatchFullLink = [];
+        for(let i = 0; i < allMatchLink.length ; i++){
             let fullLink = websiteLink+allMatchLink[i].href;
             request(fullLink, cb2);
         }
-        
-
     }
 }
 
-// let obj = {
-//     Name : Name,
-//     run : run,
-//     ball : ball,
-//     four : four,
-//     six : six,
-//     sr : sr,
-//     innings : innings
-// }
-const scoreBoard = [];
+const leaderBoard = {};
 function cb2(error, response, html2){
     if(error){
         console.log(error);
@@ -52,16 +41,35 @@ function cb2(error, response, html2){
                 let ball = allTable[3].textContent;
                 let four = allTable[5].textContent;
                 let six = allTable[6].textContent;
-                let innings = 1;
-                console.log("name : ", name, "run : ",run, "ball : ", ball);
-                
+                // console.log("name : ", name, "run : ",run, "ball : ", ball);
+                processPlayer(name, run,ball, four, six);
             }
             
         }
-        console.log(scoreBoard);
+        
     }
 }
 
-function processPlayer(name,run, ball, four, six, innings){
+function processPlayer(name,run, ball, four, six){
     
+    if(name in leaderBoard){
+        let objInAns = leaderBoard[name];
+        objInAns.run += Number(run);
+        objInAns.balls += Number(ball);
+        objInAns["4s"] += Number(four);
+        objInAns["6s"] += Number(six);
+        objInAns.innings += 1;
+    }else{
+        leaderBoard[name] = {
+            run : Number(run),
+            balls : Number(ball),
+            "4s" : Number(four),
+            "6s" : Number(six),
+            innings : 1
+        }
+    }
 }
+
+setTimeout(function () {
+    console.log(leaderBoard);
+},60000);
