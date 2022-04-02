@@ -1,7 +1,7 @@
 const request = require("request");
 const jsdom = require("jsdom");
 const {JSDOM} = jsdom;
-
+let counter = 0;
 let link = "https://www.espncricinfo.com/series/ipl-2021-1249214/match-results";
 
 request(link, cb);
@@ -20,6 +20,7 @@ function cb(error, response, html){
         for(let i = 0; i < allMatchLink.length ; i++){
             let fullLink = websiteLink+allMatchLink[i].href;
             request(fullLink, cb2);
+            counter++;
         }
     }
 }
@@ -44,6 +45,16 @@ function cb2(error, response, html2){
                 // console.log("name : ", name, "run : ",run, "ball : ", ball);
                 processPlayer(name, run,ball, four, six);
             }
+            
+        }
+        counter--;
+        if(counter == 0){
+            console.log(leaderBoard);
+            let n = 0;
+            for(it in leaderBoard){
+                n++;
+            }
+            console.log(n);
         }
     }
 }
@@ -68,6 +79,11 @@ function processPlayer(name,run, ball, four, six){
     }
 }
 // this is for printing all data after waiting 1min
-setTimeout(function () {
-    console.log(leaderBoard);
-},60000);
+// setTimeout(function () {
+//     console.log(leaderBoard);
+//     let n = 0;
+//     for(key in leaderBoard){
+//         n++;
+//     }
+//     console.log(n);
+// },60000);

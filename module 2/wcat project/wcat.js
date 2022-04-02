@@ -2,10 +2,13 @@
 const path = require("path");
 // require file system module
 const fs = require("fs");
-// require file system extra for moving file
-const fse = require("fs-extra");
-
-
+// take a line number
+let LINE = 1;
+// find out which os it is ?
+let eol = "";
+if(process.platform === "win32"){
+    eol = "\r";
+}
 // making all command and its function object
 const catMethods = {
     "-s": removeBigLineBreak,
@@ -21,7 +24,8 @@ const helpMethod = {
     "--version": tellVersion,
     "--v": tellVersion,
     "--about": about,
-    "--a": about
+    "--a": about,
+    "ls" : listItem
 }
 // main function
 // take input from user
@@ -36,25 +40,21 @@ if(inputArr.length == 2){ // means no input has been provided so help him/her ðŸ
         console.log("Also provide file path (relative or absolute) after ", firstInput);
     }else{
         if(isExists(firstInput)){
-            // console.log("working");
             if(isFile(firstInput)){
-                // console.log("working 2");
                 console.log(fs.readFileSync(firstInput,"utf-8"));
             }else{
-                console.log("Please provid file path not folder path.")
+                console.log("Please provid file path not folder path to read.")
             }
         }else{
-            console.log("File Does Not Exists. ðŸ¥±");
+            console.log("Illegle command. ðŸ¥±");
+            help();
         }
-        // console.log(isExists(firstInput));
     }
 }else{
     // we have more than one input
-    console.log("wok");
     allContent = []; // which will going to be read
     let lastFunction = "";
     for(let i = 2; i < inputArr.length; i++){
-        console.log("wok 2");
         if(inputArr[i] in helpMethod){
             console.log("Illigle input.");
             help();
@@ -65,7 +65,7 @@ if(inputArr.length == 2){ // means no input has been provided so help him/her ðŸ
         }else{
             if(isExists(inputArr[i])){
                 if(isFile(inputArr[i])){
-                    if(lastFunction = ""){
+                    if(lastFunction == ""){
                         let itsContent = nRead(inputArr[i]);
                         Array.prototype.push.apply(allContent, itsContent);
                     }else{
@@ -74,7 +74,7 @@ if(inputArr.length == 2){ // means no input has been provided so help him/her ðŸ
                     }
                 }
             }else{
-                console.log("Argument ",i,"is illigle.");
+                console.log("Argument ",inputArr[i],"is illigle.");
                 break;
             }
         }
@@ -105,20 +105,21 @@ function isFile(givenPath){
 function removeBigLineBreak(givenPath) {
     let content = fs.readFileSync(givenPath,"utf-8").toString().split("\n");
     for(let i = 0; i < content.length; i++){
-        if(content[i] == "\r"){
-            content[i] = "";
+        if(content[i] != eol){
+            content[i] += "\n";
         }
     }
     // console.log(content);
     return content;
 }
-// take a line number
-let LINE = 1;
+
 function addNumberNonEmptyLine(givenPath) {
     let content = fs.readFileSync(givenPath,"utf-8").toString().split("\n");
     for(let i = 0; i < content.length; i++){
-        if(content[i] != "\r"){
-            content[i] = LINE++ +" "+content[i];
+        if(content[i] != eol){
+            content[i] = LINE++ +" "+content[i]+"\n";
+        }else{
+            content[i] = content[i]+"\n";
         }
     }
     // console.log(content);
@@ -128,29 +129,51 @@ function addNumberNonEmptyLine(givenPath) {
 function addNumberToLine(givenPath) {
     let content = fs.readFileSync(givenPath,"utf-8").toString().split("\n");
     for(let i = 0; i < content.length; i++){
-        content[i] = LINE++ +" "+content[i];
+        content[i] = LINE++ +" "+content[i]+"\n";
     }
     // console.log(content);
     return content;
 }
-addNumberToLine(path.join(__dirname,"test.txt"))
+// addNumberToLine(path.join(__dirname,"test.txt"))
 //normal read
 function nRead(givenPath){
     let content = fs.readFileSync(givenPath,"utf-8").toString().split("\n");
+    for(let i = 0; i < content.length; i++){
+        content[i] = content[i]+"\n";
+    }
     return content;
 }
 function help() {
-    console.log('Use cat commands in Windows\
-                \n"-s or -S        " : "use for removing big line break",\
-                \n"-b or -B        " : "add numbring to non-empty lines",\
-                \n"-n or -N        " : "add numbering to all lines",\
-                \n"--help or --h   " : "for help",\
-                \n"--version or --v" : "for version information",\
-                \n"--about or --a  " : "about section and developer information"');
+    console.log('\n************************ USE CAT COMMAND IN WINDOWS *****************************\n\
+                \n$ <file> <file> ...                 " : "use can use as many files after any read commands -s -b -n or without it will read lines",\
+                \n$ <-s> <file> or <-S> <file>        " : "use for removing big line break",\
+                \n$ <-b> <file> or <-B> <file>        " : "add numbring to non-empty lines",\
+                \n$ <-n> <file> or <-N> <file>        " : "add numbering to all lines",\
+                \n$ <--help>  or <--h>                " : "for help",\
+                \n$ <--version> or <--v>              " : "for version information",\
+                \n$ <--about> or <--a>                " : "about section and developer information"\
+                \n\n************************** BY DHEERAJ SHRIVASTVA *****************************');
 }
 function tellVersion() {
-    console.log("version : 1.0.0\n");
+    console.log("version : 1.1.9\n");
 }
 function about() {
-    console.log("made by Dheeraj\n");
+console.log('\n************************** DEVELOPER INFORMATION ******************************\n\
+            \n$ NAME    : DHEERAJ KUMAR SHRIVASTVA\
+            \n$ GitHub  : https://github.com/devlooper121\
+            \n$ Linkdin : https://www.linkedin.com/in/devlooper121/\
+            \n$ Twitter : https://twitter.com/super_121\
+            \n$ LeetCode: https://leetcode.com/devlooper/\
+            \n$ Email   : mailtodheeraj2@gmail.com\
+            \n\n*******************************************************************************');
 }
+function listItem(){
+    let files = fs.readdirSync(__dirname);
+    console.log("******************** Wcat ls Command **********************");
+    for(item in files){
+        console.log("\t",files[item]);
+    }
+    console.log("***********************************************************");
+}
+
+// console.log(typeof(catMethods["-s"]("test.txt")))
