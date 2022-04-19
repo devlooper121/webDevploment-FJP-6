@@ -1,0 +1,230 @@
+https://github.com/momotech/MLN/issues/386
+升级兼容64位报错的问题
+https://github.com/momotech/MLN/issues/384
+MLN环境和ArgoUI环境搭建究竟用哪个比较好？ 
+https://github.com/momotech/MLN/issues/381
+Android build时报错
+https://github.com/momotech/MLN/issues/379
+该项目会长期维护吗？
+https://github.com/momotech/MLN/issues/378
+Android Demo运行后崩溃
+https://github.com/NathanWalker/angular-seed-advanced/issues/492
+Unable to run on iOS emulator using npm run start.ios
+https://github.com/NathanWalker/angular-seed-advanced/issues/491
+NativeScript tns preview
+https://github.com/NathanWalker/angular-seed-advanced/issues/488
+The dev/prod build of angluar seed app is throwing Uncaught SyntaxError: Unexpected token < exception
+https://github.com/NathanWalker/angular-seed-advanced/issues/487
+use native UI
+https://github.com/NathanWalker/angular-seed-advanced/issues/486
+Error: com.tns.NativeScriptException: Failed to find module: "./app/modules/core/index", relative to: app/
+https://github.com/EddyVerbruggen/nativescript-plugin-firebase/issues/1881
+Cannot read property 'ads' of undefined on NativeScript 8.2.3
+https://github.com/EddyVerbruggen/nativescript-plugin-firebase/issues/1880
+barcode scanning issue - iPhone 13 Pro and iPhone 13 Pro max
+https://github.com/EddyVerbruggen/nativescript-plugin-firebase/issues/1879
+Error trying to install @nativescript/firebase
+https://github.com/EddyVerbruggen/nativescript-plugin-firebase/issues/1878
+ion
+https://github.com/EddyVerbruggen/nativescript-plugin-firebase/issues/1877
+Unable to run new deployment
+https://github.com/alibaba/LuaViewSDK/issues/94
+demo工程无法正常运行
+https://github.com/alibaba/LuaViewSDK/issues/92
+Problems with build.Gradle,
+https://github.com/alibaba/LuaViewSDK/issues/91
+debugger的问题
+https://github.com/alibaba/LuaViewSDK/issues/90
+本项目是否已停止维护开发?
+https://github.com/alibaba/LuaViewSDK/issues/88
+'lua.h' file not found
+https://github.com/NativeScript/nativescript-angular/issues/2375
+[iOS] Issue while opening dialogs inside a modal
+https://github.com/NativeScript/nativescript-angular/issues/2374
+[Element] is not a known element
+https://github.com/NativeScript/nativescript-angular/issues/2372
+Cannot read property 'call' of undefined
+https://github.com/NativeScript/nativescript-angular/issues/2370
+(android) Navigation does not work when the app is started while the device is locked
+https://github.com/NativeScript/nativescript-angular/issues/2369
+Nativescript iOS & Android runtime issue module not found
+https://github.com/ngx-formly/ngx-formly/issues/3274
+Dynamically change the content of a fieldGroup based on another field value
+https://github.com/ngx-formly/ngx-formly/issues/3272
+Formly ESLint rules
+https://github.com/ngx-formly/ngx-formly/issues/3270
+Jest custom snapshot serializer
+https://github.com/ngx-formly/ngx-formly/issues/3267
+v6 adds an unnecessary (?) nested formly field and group
+https://github.com/ngx-formly/ngx-formly/issues/3265
+Bootstrap 5 floating labels
+https://github.com/nativescript-vue/nativescript-vue/issues/959
+Routing not working with sub frame.
+https://github.com/nativescript-vue/nativescript-vue/issues/957
+Expose itemTemplateSelector  for the ListView ns-core Layout
+https://github.com/nativescript-vue/nativescript-vue/issues/927
+Accessing $this (vue instance) in Application Lifecycle Events
+https://github.com/nativescript-vue/nativescript-vue/issues/926
+style is lost after v-if switches back
+https://github.com/nativescript-vue/nativescript-vue/issues/916
+Computed style not working with variable css
+https://github.com/ColorlibHQ/gentelella/issues/923
+下载后怎么运行呀？需要那些环境呀？我是个小白
+https://github.com/ColorlibHQ/gentelella/issues/921
+Django-Mezzanine-Gentelella work together or options?
+https://github.com/ColorlibHQ/gentelella/issues/919
+Is it possible to have a different logo when left side menu is collapsed?
+https://github.com/ColorlibHQ/gentelella/issues/918
+The gender select color in form_wizards.html
+https://github.com/ColorlibHQ/gentelella/issues/917
+can i init close the panel x_panel for default?
+https://github.com/NativeScript/NativeScript/issues/9869
+[Box shadow iOS] combining linear-gradient background, border-radius and box-shadow
+https://github.com/NativeScript/NativeScript/issues/9866
+Release Android crashes app
+https://github.com/NativeScript/NativeScript/issues/9862
+Can't run code on iPhone device
+https://github.com/NativeScript/NativeScript/issues/9858
+Setting AppCompat version to 1.4.0-alpha01 and higher to fulfill the new Android Emoji Policy
+https://github.com/NativeScript/NativeScript/issues/9856
+Error: Calling js method onCreateView failed; Expected the adapter to be 'fresh' while restoring state.
+https://github.com/tabler/tabler/issues/1105
+[FEATURE] search on icons view
+https://github.com/tabler/tabler/issues/1103
+[FEATURE] Using my own brand color by replacing default color
+https://github.com/tabler/tabler/issues/1082
+[BUG] bg-*color* overwrites font-color
+https://github.com/tabler/tabler/issues/1073
+tabler.min.js:9  / Uncaught RangeError: Maximum call stack size exceeded.
+https://github.com/tabler/tabler/issues/1070
+[FEATURE] - settings page with sub sections?
+https://github.com/mdbootstrap/mdb-ui-kit/issues/1485
+404
+https://github.com/mdbootstrap/mdb-ui-kit/issues/1484
+Range API not working
+https://github.com/mdbootstrap/mdb-ui-kit/issues/1483
+border not showing up in input
+https://github.com/mdbootstrap/mdb-ui-kit/issues/1466
+Border colors doesn't work properly
+https://github.com/mdbootstrap/mdb-ui-kit/issues/1462
+<Input> in Drop-down menu item causes missing fade-in animation when opening the drop-down
+https://github.com/verekia/js-stack-from-scratch/issues/264
+Installing ESLint on windows
+https://github.com/verekia/js-stack-from-scratch/issues/262
+Out of date
+https://github.com/verekia/js-stack-from-scratch/issues/260
+Add instructions to deploy in DigitalOcean
+https://github.com/verekia/js-stack-from-scratch/issues/258
+jest : SecurityError: localStorage is not available for opaque origins
+https://github.com/verekia/js-stack-from-scratch/issues/255
+V3 Roadmap
+https://github.com/react-bootstrap/react-bootstrap/issues/6308
+Using arrow keys on Dropdown menu throws error
+https://github.com/react-bootstrap/react-bootstrap/issues/6292
+On ToggleButtonGroup type=radio, margin-left is applied incorrectly
+https://github.com/react-bootstrap/react-bootstrap/issues/6289
+Discussion: Admin Dashboard Templates
+https://github.com/react-bootstrap/react-bootstrap/issues/6288
+OverlayTrigger should support more of the Overlay interface, and also delay is not implemented (or not documented)
+https://github.com/react-bootstrap/react-bootstrap/issues/6287
+Feature: css namespace
+https://github.com/twbs/bootstrap/issues/36158
+Scss left over of data-bs-original-title
+https://github.com/twbs/bootstrap/issues/36147
+jQuery not working closed.bs.alert event
+https://github.com/twbs/bootstrap/issues/36146
+Use of deprecated xlink:href in examples
+https://github.com/twbs/bootstrap/issues/36140
+object-fit utility
+https://github.com/twbs/bootstrap/issues/36139
+Tabs in navbar-nav (wide dropdown menu)
+https://github.com/FiloSottile/mkcert/issues/432
+how do we create for a whole CIDR block?
+https://github.com/FiloSottile/mkcert/issues/431
+macOS: unable to get local issuer certificate
+https://github.com/FiloSottile/mkcert/issues/430
+windows 10 makcert -install installs expired certificate
+https://github.com/FiloSottile/mkcert/issues/427
+Windows 10 mkcert error NET::ERR_CERT_COMMON_NAME_INVALID microsoft edge
+https://github.com/FiloSottile/mkcert/issues/424
+NET::ERR_CERT_AUTHORITY_INVALID after a while of working properly
+https://github.com/ovity/octotree/issues/1127
+The bookmarking icon next to the repository name is gone
+https://github.com/ovity/octotree/issues/1125
+iOS Extension Support
+https://github.com/ovity/octotree/issues/1122
+Octotree does not refresh PR file tree after clicking on the reload button
+https://github.com/ovity/octotree/issues/1120
+[Feature Request] Open folder in current tab
+https://github.com/ovity/octotree/issues/1115
+Feature Request: Ignore certain repo paths
+https://github.com/microsoft/playwright/issues/13628
+[BUG] element is not stable
+https://github.com/microsoft/playwright/issues/13629
+[Feature] Ability to save a web page as HTML/MHTML
+https://github.com/microsoft/playwright/issues/13618
+[Question] Shutting down environment + no space left on device
+https://github.com/microsoft/playwright/issues/13611
+[BUG] Playwright stalls before half of the test finished.
+https://github.com/microsoft/playwright/issues/13608
+[Feature] Migrate selenium to playwright
+https://github.com/segmentio/nightmare/issues/1648
+Using Nightmare with single sign on
+https://github.com/segmentio/nightmare/issues/1647
+high vulnerability when installing latest version of nightmare
+https://github.com/segmentio/nightmare/issues/1645
+Electron Window cannot find nightmare
+https://github.com/segmentio/nightmare/issues/1643
+How to access the window.digitalData object
+https://github.com/segmentio/nightmare/issues/1638
+Documentation for browser support
+https://github.com/ColorlibHQ/AdminLTE/issues/4397
+Calendar Draggable events always return allDay:true
+https://github.com/ColorlibHQ/AdminLTE/issues/4395
+Como abrir pagina em fullscreen?
+https://github.com/ColorlibHQ/AdminLTE/issues/4394
+Deprecation: flag-icons-css has been renamed to flag-icons
+https://github.com/ColorlibHQ/AdminLTE/issues/4384
+[BUG] IFrame events setup duplicated for jQuery api
+https://github.com/ColorlibHQ/AdminLTE/issues/4372
+[FEATURE] Icon Picker
+https://github.com/jaywcjlove/linux-command/issues/357
+readme里面部分链接失效
+https://github.com/jaywcjlove/linux-command/issues/352
+time命令存疑
+https://github.com/jaywcjlove/linux-command/issues/351
+看看这个风格的界面效果怎么样
+https://github.com/jaywcjlove/linux-command/issues/347
+增加 journalctl 命令
+https://github.com/jaywcjlove/linux-command/issues/343
+支持 Dash 的自动更新 feed
+https://github.com/checkly/headless-recorder/issues/186
+add option to use ARIA nth model ?
+https://github.com/checkly/headless-recorder/issues/184
+navigationPromise resolves once but used multiple times
+https://github.com/checkly/headless-recorder/issues/183
+can support xpath?
+https://github.com/checkly/headless-recorder/issues/167
+Default to text selectors for Playwright
+https://github.com/checkly/headless-recorder/issues/162
+Add support for Java?
+https://github.com/bootstrap-vue/bootstrap-vue/issues/6960
+b-pagination - initial value of currentPage is always 1
+https://github.com/bootstrap-vue/bootstrap-vue/issues/6959
+SassError: Undefined variable. trying to customize bootstrap variables
+https://github.com/bootstrap-vue/bootstrap-vue/issues/6957
+Can't prevent b-pagination-nav click in @page-click event
+https://github.com/bootstrap-vue/bootstrap-vue/issues/6956
+Pagination does not work for table when data are filtered
+https://github.com/bootstrap-vue/bootstrap-vue/issues/6947
+轮播图移动速度
+https://github.com/electron/electron/issues/33826
+[Bug]: gin::WrappableBase::SecondWeakCallback (Fatal Error: EXCEPTION_ACCESS_VIOLATION_READ)
+https://github.com/electron/electron/issues/33825
+[Bug]: memcpy crash (Fatal Error: EXCEPTION_ACCESS_VIOLATION_WRITE)
+https://github.com/electron/electron/issues/33824
+[Bug]: v8::internal::GlobalHandles::InvokeSecondPassPhantomCallbacksFromTask (Fatal Error: EXCEPTION_ACCESS_VIOLATION_EXEC)       
+https://github.com/electron/electron/issues/33823
+[Bug]: crash_reporter::DumpWithoutCrashing (Fatal Error: Simulated Exception)
+https://github.com/electron/electron/issues/33816
+[Bug]: Eletron 18 renderer process turn to a weired white screen after staying idle for a while
