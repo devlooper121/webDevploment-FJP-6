@@ -4,7 +4,7 @@ userEmail = "toyon96814@hhmel.com";
 password = "ssdSamsungKa";
 
 let page;
-let browserPromise = puppeteer.launch({headless: false});
+let browserPromise = puppeteer.launch({headless: false,args: ['--start-fullscreen']});
 let allQuestion = [];
 
 browserPromise.then(function(browser){
@@ -54,32 +54,44 @@ browserPromise.then(function(browser){
     console.log("login is sucessfull 😁");
     return page.waitForSelector('[data-automation="algorithms"]');
 }).then(function(){
-    console.log("working 1");
     let clickPromise = page.click('[data-automation="algorithms"]');
     return clickPromise;
 }).then(function(){
-    console.log("working 2");
     // wait promise
     return page.waitForSelector('input[value="warmup"]');
 }).then(function(){
-    console.log("working 3");
     // return click promise
     return page.click('input[value="warmup"]');
 }).then(function(){
-    console.log("working 4");
     //return wait promise
     return page.waitForSelector('.ui-btn.ui-btn-normal.primary-cta.ui-btn-line-primary.ui-btn-styled');
 
 }).then(function(){
+    
     let domClickPromse = page.evaluate(function(){
-        let question = document.querySelectorAll(".ui-btn.ui-btn-normal.primary-cta.ui-btn-line-primary.ui-btn-styled");
-        for(let i = 0 ; i < question.length; i++){
-            allQuestion[i] = question[i];
+        allQuestion = [];
+        let array = document.querySelectorAll(".ui-btn.ui-btn-normal.primary-cta.ui-btn-line-primary.ui-btn-styled");
+        for (let i = 0; i < array.length; i++) {
+            allQuestion[i] = array[i];
         }
+        return allQuestion;
     })
     return domClickPromse;
-}).then(function(){
-    console.log(allQuestion);
-}).then(function(){
-    console.log("first q selected");
+}).then(function(question){
+    console.log(question);
 })
+
+
+function waitAndClick(selector){
+    return new Promise(function(resolve, reject){
+        let waitPromise = page.waitForSelector(selector);
+        waitPromise.then(function(){
+            let clickPromise = page.click(selector);
+            clickPromise.then(function(){
+                resolve();
+            }).catch(function(){
+                reject();
+            })
+        })
+    })
+}
