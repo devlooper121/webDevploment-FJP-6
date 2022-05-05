@@ -1,0 +1,112 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+header{
+    min-width: 1180px;
+    min-height: 60px;
+    margin: 0 auto;
+    padding: auto;
+    background-color: #BB9981;
+    
+}
+nav{
+    display: flex;
+    width: 100%;
+    height: 60px;
+    justify-content: center;
+}
+
+.left{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.colors-pallet{
+    display: flex;
+    margin: 0 20px 0 10%;
+    background-color: #339981;
+    padding: 10px 20px;
+    justify-content: space-between;
+    width: 50%;
+}
+.priority{
+    width: 22%;
+    height: 30px;
+    cursor: pointer;
+}
+
+.font-selector{
+    width: 40px;
+}
+.action-tab{
+    display: flex;
+    background-color: #339981;
+    padding: 10px 20px;
+    justify-content: space-between;
+    width: 100px;
+}
+.btn{
+    width: 40px;
+    height: 30px;
+}
+.right-empty{
+    width: 50%;
+    height: 100%;
+}
+main{
+    min-height: 100vh;
+    width: 100%;
+    background-color:#F4FCD9;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.task{
+    display: flex;
+    flex-direction: column;
+    background-color: bisque;
+    width: 300px;
+    height: 200px;
+    margin: 20px;
+}
+.priority-color{
+    width: 100%;
+    height: 10%;
+    cursor: pointer;
+}
+.red{
+    background-color: red;
+}
+.yellow{
+    background-color: yellow;
+}
+.green{
+    background-color: green;
+}
+.gray{
+    background-color: gray;
+}
+.main-content{
+    width: 100%;
+    height: 90%;
+    position: relative;
+}
+.lock-unlock{
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+}
+.note-content{
+    width: 90%;
+    height: 90%;
+    margin: 2% 5%;
+}
+.note-content:focus{
+    outline: none;
+}
+

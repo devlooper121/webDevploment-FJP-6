@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div{
+        width: 200px;
+        height: 20px;
+        background-color:antiquewhite;
+        box-shadow: 5px 5px 10px -5px #0009;
+        border-bottom: 1px solid  black;
+        margin-bottom: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <button>sayHello</button>
+    <button id="addDiv" style="border-radius: 50%; width: 30px; height: 30px; background-color: blueviolet;">+</button>
+    <script>
+      // Q- On clicking the button append hello to the page
+      let btn = document.querySelector("button");
+      btn.addEventListener("click",function(){
+        let pTag = document.createElement("p");
+        pTag.innerText = "Hello";
+        let bodyTag = document.querySelector("body");
+        bodyTag.appendChild(pTag);
+      })
+      let letdivBtn = document.getElementById("addDiv");
+      letdivBtn.addEventListener("click", function(){
+        let divNew = document.createElement("div");
+        divNew.innerHTML = "new Div";
+        let bodyTag = document.querySelector("body");
+        bodyTag.appendChild(divNew);
+      })
+
+    </script>
+  </body>
+</html>
