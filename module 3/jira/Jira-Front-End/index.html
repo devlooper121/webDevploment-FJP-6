@@ -6,44 +6,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jira</title>
     <link rel="stylesheet" href="Styles.css">
-    <link rel="stylesheet" href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400&family=Patrick+Hand&display=swap" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" /> -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="left">
-                <div class="colors-pallet">
-                    <div class="priority red" ></div>
-                    <div class="priority yellow"></div>
-                    <div class="priority green"></div>
-                    <div class="priority gray"></div>
-                </div>
-                <div class="font-selector">
-                    <p>EN</p>
-                </div>
-                <div class="action-tab">
-                    <button class="add-new-task btn" id="add-new"><span class="material-symbols-outlined">
-                        add
-                        </span></button>
-                    <button class="remove-selected-task btn"><span class="material-symbols-outlined">
-                        delete
-                        </span></button>
-                </div>
-                
+
+    <nav>
+        <div class="left">
+            <div class="colors-pallet">
+                <div class="priority red" ></div>
+                <div class="priority yellow"></div>
+                <div class="priority green"></div>
+                <div class="priority gray"></div>
             </div>
-            <div class="right-empty"></div>
-        </nav>
-    </header>
-    <main id="main">
-        <div class="task">
-            <div class="priority-color red"></div>
-            <div class="main-content">
-                <button class="lock-unlock" name="lock-unlock"><span class="material-symbols-outlined">lock</span></button>
-                <p class="note-content" contenteditable="true"></p>
+            
+            <div class="action-tab">
+                <button class="add-new-task btn" id="add-new"><span class="material-icons material-icon-round">
+                    add_circle
+                    </span></button>
+                <button class="remove-selected-task btn"><span class="material-icons material-icon-round">
+                    delete
+                    </span></button>
+                <!-- <button class="setting-btn btn"><span class="material-icons material-icon-round">
+                    settings
+                    </span></button> -->
             </div>
+            
         </div>
+        <div class="right-empty"></div>
+    </nav>
+
+    <main id="main">
+        
+        <!-- input area  -->
         
     </main>
+    <div class="input-area-new">
+        <div class="text-section">
+            <textarea name="" id="task-area" placeholder="Type your note..."></textarea>
+        </div>
+        
+        <div class="priority-section">
+            <div class="red priority-set" ></div>
+            <div class="yellow priority-set"></div>
+            <div class="green priority-set"></div>
+            <div class="gray priority-set active"></div>
+        </div>
+    </div>
+    <!-- <div class="settings">
+        
+    </div> -->
     <footer>
 
     </footer>
