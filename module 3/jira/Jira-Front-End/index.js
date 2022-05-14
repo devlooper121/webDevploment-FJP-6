@@ -1,15 +1,66 @@
 let addBtn = document.getElementById("add-new");
+
 let inputArea = document.querySelector(".input-area-new");
+
 let textArea = document.getElementById("task-area");
+
 let main = document.getElementById("main");
+
 let allColorPallet = document.getElementsByClassName("priority-set");
 
-let removeFlag = false;
 let removeBtn = document.querySelector(".remove-selected-task");
+
+let colorMenu = document.querySelectorAll(".priority");
+
+
+let removeFlag = false;
 let colorList = ["red","yellow", "green","gray"];
 let colorIdxObj = {"red":0,"yellow":1, "green":2,"gray":3}
 let selectedColor = colorList[3];
+let uid = new ShortUniqueId();
 const idSet = new Set(); 
+
+let allTaskArr = [];
+
+for(let i = 0; i < colorMenu.length; i++){
+    colorMenu[i].addEventListener("click", function(){
+        // filter by color
+        let filterArr = [];
+        let colorOfFilter = colorMenu[i].classList[1];
+        // console.log(colorOfFilter)
+        for(let j = 0 ; j< allTaskArr.length; j++){
+            if(allTaskArr[j].color === colorOfFilter){
+                filterArr.push(allTaskArr[j]);
+            }
+        }
+        console.log(filterArr);
+        // select and remove all present
+        let allDivPresent = document.querySelectorAll(".ticket-cont");
+        for(let j = 0 ; j < allDivPresent.length; j++){
+            allDivPresent[j].remove();
+        }
+        // display all filter obj
+        for(let j = 0; j < filterArr.length; j++){
+            let ticket = filterArr[j];
+            createTicket(ticket.color, ticket.task, ticket.id);
+        }
+        
+    });
+    colorMenu[i].addEventListener("dblclick", function(){
+        console.log("dbl");
+        // select and remove all present
+        let allDivPresent = document.querySelectorAll(".ticket-cont");
+        for(let j = 0 ; j < allDivPresent.length; j++){
+            allDivPresent[j].remove();
+        }
+        // display all filter obj
+        for(let j = 0; j < allTaskArr.length; j++){
+            let ticket = allTaskArr[j];
+            createTicket(ticket.color, ticket.task, ticket.id);
+        }
+        
+    });
+}
 
 addBtn.addEventListener("click", ()=>{
     inputArea.classList.toggle("visible");
@@ -28,13 +79,21 @@ for(let i = 0 ; i < 4; i++){
 
 textArea.addEventListener("keydown", (e)=>{
     if(e.key === "Enter"){
-        const task = textArea.value;
-        let id = idGen();
-        createTicket(selectedColor,task, id);
+        const task = textArea.value.trim();
+        let ticketId;
+        createTicket(selectedColor,task, ticketId);
         textArea.value = ``;
         textArea.setAttribute("placeholder", "Type your notes")
         inputArea.classList.toggle("visible");
     }
+})
+removeBtn.addEventListener("click",()=>{
+    if(!removeFlag){
+        removeBtn.style.color = "red";
+    }else{
+        removeBtn.style.color = "black"
+    }
+    removeFlag = !removeFlag;
 })
 {/* <div class="ticket-cont">
     <div class="ticket-color red"></div>
@@ -43,7 +102,15 @@ textArea.addEventListener("keydown", (e)=>{
         <button class="lock-unlock" name="lock-unlock"><span class="material-symbols-outlined">lock</span></button>
     </div>
 </div> */}
-const createTicket = (priorityColor,task, id)=>{
+const createTicket = (priorityColor,task, ticketId)=>{
+    // id
+    let id;
+    if(ticketId === undefined){
+        id = uid();
+    }else{
+        id = ticketId;
+    }
+    
     let ticketContaner = document.createElement("div");
     ticketContaner.classList.add("ticket-cont");
     ticketContaner.innerHTML = `<div class="ticket-color ${priorityColor}"></div>
@@ -77,7 +144,16 @@ const createTicket = (priorityColor,task, id)=>{
         }
     })
     
-
+    let ticketDetails = {
+        color :priorityColor,
+        task: task,
+        id:id
+    }
+    if(ticketId===undefined){
+        allTaskArr.push(ticketDetails);
+        // console.log(allTaskArr);
+    }
+    
     // var active = false;
     // var currentX;
     // var currentY;
@@ -134,14 +210,7 @@ const createTicket = (priorityColor,task, id)=>{
     // }
 }
 
-removeBtn.addEventListener("click",()=>{
-    if(!removeFlag){
-        removeBtn.style.color = "red";
-    }else{
-        removeBtn.style.color = "black"
-    }
-    removeFlag = !removeFlag;
-})
+
 
 function idGen(){
     let randomNum = Math.floor(Math.random()*89999)+10000
