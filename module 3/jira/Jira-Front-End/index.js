@@ -91,7 +91,7 @@ removeBtn.addEventListener("click",()=>{
     if(!removeFlag){
         removeBtn.style.color = "red";
     }else{
-        removeBtn.style.color = "black"
+        removeBtn.style.color = "black";
     }
     removeFlag = !removeFlag;
 })
@@ -119,18 +119,30 @@ const createTicket = (priorityColor,task, ticketId)=>{
                                     <button class="lock-unlock" name="lock-unlock"><span class="material-icons material-icon-round">lock</span></button>
                                 </div>`
     main.appendChild(ticketContaner);
+    // delete handler
     ticketContaner.addEventListener("click", ()=>{
         if(removeFlag){
             ticketContaner.remove();
+            // delete from ticket arr too
+            let idx = getTicketById(id);
+            allTaskArr.splice(idx,1);
         }
     })
+    // changing color handler
     let colorBand = ticketContaner.querySelector(".ticket-color");
     colorBand.addEventListener("click", ()=>{
         let currentColor = colorBand.classList[1];
         let currColorIdx = colorIdxObj[currentColor];
         colorBand.classList.remove(currentColor);
-        colorBand.classList.add(colorList[(currColorIdx+1)%colorList.length]);
+        let nextColor = colorList[(currColorIdx+1)%colorList.length];
+        colorBand.classList.add(nextColor);
+
+        // find and update color when changing color
+        let idx = getTicketById(id);
+        allTaskArr[idx].color = nextColor;
     })
+
+    // lock unlock handler
     let lockBtn = ticketContaner.querySelector(".lock-unlock");
     let divTag = ticketContaner.querySelector(".task-area");
     lockBtn.addEventListener("click",()=>{
@@ -138,12 +150,17 @@ const createTicket = (priorityColor,task, ticketId)=>{
         if(status === "true"){
             divTag.setAttribute("contenteditable", "false");
             lockBtn.querySelector("span").innerText = "lock";
+            // find and update task when locking task
+            let idx = getTicketById(id);
+            
+            allTaskArr[idx].task = divTag.innerText;
         }else{
             divTag.setAttribute("contenteditable", "true");
             lockBtn.querySelector("span").innerText = "lock_open";
         }
+        
     })
-    
+    // adding ticket object in all array
     let ticketDetails = {
         color :priorityColor,
         task: task,
@@ -221,3 +238,10 @@ function idGen(){
     return randomNum;
 }
 
+function getTicketById(id){
+    for(let i = 0; i < allTaskArr.length; i++){
+        if(allTaskArr[i].id==id){
+            return i;
+        }
+    }
+}

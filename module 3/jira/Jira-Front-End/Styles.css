@@ -2,11 +2,10 @@
     padding: 0;
     margin: 0;
     touch-action: none;
-      user-select: none;
+    user-select: none;
 }
 body{
-    position: relative;
-    
+    /* position: relative; */
     font-family: 'Montserrat', sans-serif;
 }
 
@@ -171,7 +170,7 @@ main{
     width: 0;
     height: 0;
     opacity: 0;
-    position: absolute;
+    position: fixed;
     box-shadow: 5px 5px 10px -5px #0007;
     border-radius: 5px;
 }
@@ -250,7 +249,7 @@ main{
         align-items: center;
         justify-content:flex-start;
         padding: 0;
-        padding-top: 8 0px;
+        padding-top: 60px;
     }
     .text-section>textarea{
         font-size: 1.3rem;
