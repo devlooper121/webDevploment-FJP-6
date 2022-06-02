@@ -42,6 +42,7 @@ nav{
     height: 30px;
     cursor: pointer;
     border-radius: 5px;
+    box-sizing: border-box;
 }
 
 .font-selector{
@@ -129,6 +130,8 @@ main{
     line-height: 1.6rem;
     touch-action: none;
     user-select: none;
+    line-break: auto;
+    word-break: break-all;
 }
 ::-webkit-scrollbar{
     display: none;
@@ -145,8 +148,8 @@ main{
 }
 .lock-unlock{
     position: absolute;
-    bottom: 4px;
-    right: 5px;
+    bottom: 0px;
+    right: 0px;
     border: 2px hidden #000;
     border-radius: 5px;
     cursor: pointer;
@@ -211,8 +214,10 @@ main{
     border-radius: 5px;
 }
 .active{
-    
     border: 3px solid #F4FCD9;
+}
+.selected{
+    border: 2px solid #F4FCD9;
 }
 .visible{
     transition: all 200ms ease-in;

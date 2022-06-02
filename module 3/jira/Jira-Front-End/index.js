@@ -21,9 +21,18 @@ let uid = new ShortUniqueId();
 const idSet = new Set(); 
 
 let allTaskArr = [];
+// when load page the get ticketsDB and populate main by createTicket
+let ticketsDBJSON = localStorage.getItem("ticketsDB")
 
+
+// color menu handler
 for(let i = 0; i < colorMenu.length; i++){
     colorMenu[i].addEventListener("click", function(){
+        // show its selected
+        for(let j = 0; j < colorMenu.length; j++){
+            colorMenu[j].classList.remove("selected");
+        }
+        colorMenu[i].classList.add("selected");
         // filter by color
         let filterArr = [];
         let colorOfFilter = colorMenu[i].classList[1];
@@ -47,6 +56,10 @@ for(let i = 0; i < colorMenu.length; i++){
         
     });
     colorMenu[i].addEventListener("dblclick", function(){
+        // remove all selection
+        for(let j = 0; j < colorMenu.length; j++){
+            colorMenu[j].classList.remove("selected");
+        }
         console.log("dbl");
         // select and remove all present
         let allDivPresent = document.querySelectorAll(".ticket-cont");
@@ -69,7 +82,7 @@ for(let i = 0 ; i < 4; i++){
     let selected = allColorPallet[i];
     selected.addEventListener("click", (e)=>{
         for(let j = 0; j < 4; j++){
-            console.log("y")
+            // console.log("y")
             allColorPallet[j].classList.remove("active");
         }
         selected.classList.add("active");
@@ -115,9 +128,8 @@ const createTicket = (priorityColor,task, ticketId)=>{
     ticketContaner.classList.add("ticket-cont");
     ticketContaner.innerHTML = `<div class="ticket-color ${priorityColor}"></div>
                                 <div class="ticket-id">ID:${id}</div>
-                                <div class="task-area" contenteditable="false">${task}
-                                    <button class="lock-unlock" name="lock-unlock"><span class="material-icons material-icon-round">lock</span></button>
-                                </div>`
+                                <div class="task-area" contenteditable="false">${task}</div>
+                                <button class="lock-unlock" name="lock-unlock"><span class="material-icons material-icon-round">lock</span></button>`
     main.appendChild(ticketContaner);
     // delete handler
     ticketContaner.addEventListener("click", ()=>{
@@ -126,6 +138,7 @@ const createTicket = (priorityColor,task, ticketId)=>{
             // delete from ticket arr too
             let idx = getTicketById(id);
             allTaskArr.splice(idx,1);
+            updateLocalStorage()
         }
     })
     // changing color handler
@@ -140,6 +153,7 @@ const createTicket = (priorityColor,task, ticketId)=>{
         // find and update color when changing color
         let idx = getTicketById(id);
         allTaskArr[idx].color = nextColor;
+        updateLocalStorage()
     })
 
     // lock unlock handler
@@ -152,8 +166,9 @@ const createTicket = (priorityColor,task, ticketId)=>{
             lockBtn.querySelector("span").innerText = "lock";
             // find and update task when locking task
             let idx = getTicketById(id);
-            
-            allTaskArr[idx].task = divTag.innerText;
+            console.log(divTag.innerText);
+            allTaskArr[idx].task = divTag.textContent;
+            updateLocalStorage();
         }else{
             divTag.setAttribute("contenteditable", "true");
             lockBtn.querySelector("span").innerText = "lock_open";
@@ -168,6 +183,8 @@ const createTicket = (priorityColor,task, ticketId)=>{
     }
     if(ticketId===undefined){
         allTaskArr.push(ticketDetails);
+        // push in local Storage
+        updateLocalStorage();
         // console.log(allTaskArr);
     }
     
@@ -227,7 +244,14 @@ const createTicket = (priorityColor,task, ticketId)=>{
     // }
 }
 
+if(ticketsDBJSON){
+    let ticketsDBArr = JSON.parse(ticketsDBJSON);
+    allTaskArr = ticketsDBArr;
 
+    for(let i = 0 ; i < ticketsDBArr.length; i++){
+        createTicket(ticketsDBArr[i].color, ticketsDBArr[i].task, ticketsDBArr[i].id);
+    }
+}
 
 function idGen(){
     let randomNum = Math.floor(Math.random()*89999)+10000
@@ -244,4 +268,8 @@ function getTicketById(id){
             return i;
         }
     }
+}
+
+function updateLocalStorage(){
+    localStorage.setItem("ticketsDB", JSON.stringify(allTaskArr));
 }

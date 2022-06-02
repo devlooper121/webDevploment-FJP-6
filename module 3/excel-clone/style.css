@@ -1,0 +1,90 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box  ;
+}
+
+.menu-content, .options-content, .sheets-content{
+    height: 30px;
+    width: 100vw;
+    background-color: #12121222;
+    border: .5px solid;
+}
+#address{
+    width: 50px;
+    height: 100%;
+    font-weight: 500;
+}
+#function{
+    width: 200px;
+    height: 100%;
+    margin: 0;
+    outline: none;
+    background-color: #f2f2f2;
+}
+.cells-content{
+    width: 100vw;
+    height: 86vh;
+    background-color: #62626222;
+    overflow: auto;
+    position: relative;
+}
+.main-editable-cell{
+    margin-left: 30px;
+    position: absolute;
+    margin-top: 30px;
+}
+.row{
+    display: flex;
+
+}
+.cell{
+    width: 110px;
+    min-height: 30px;
+    border: .1px solid #999;
+    text-align: center;
+    outline: none;
+}
+
+.neutral-cell{
+    width: 30px;
+    height: 30px;
+    background-color: #aaa;
+    position: absolute;
+    z-index: 3;
+}
+.top-row-head{
+    display: flex;
+    position: absolute;
+    left: 30px;
+    top: 0px;
+    background-color: #aaa;
+    z-index: 2;
+
+}
+.top-row-head-cell{
+    width: 110px;
+    height: 30px;
+    border: .2px solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.left-col-head{
+    position: absolute;
+    top: 30px;
+    z-index: 2;
+    background-color: #aaa;
+    
+}
+.left-col-cell{
+    width: 30px;
+    height: 30px;
+    border: .2px solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
