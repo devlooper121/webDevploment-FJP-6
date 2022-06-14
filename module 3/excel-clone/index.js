@@ -22,22 +22,37 @@ cellContent.addEventListener("scroll", (e)=>{
     neutralCell.style.left = scrollFromLeft+"px";
 });
 
+let colid;
+let rowid;      
+
 for (let i = 0; i < allCells.length; i++) {
     allCells[i].addEventListener("click", e=>{
-        lastSelectedCell = e.target;
-        let colid = Number(e.target.getAttribute("colid"));
-        let rowid = Number(e.target.getAttribute("rowid"));
+        // selected remove from last
+        if(lastSelectedCell){
+            document.querySelector(`div[rid='${rowid}']`).classList.remove("active-row-col");
+            document.querySelector(`div[cid='${colid}']`).classList.remove("active-row-col");
+            lastSelectedCell.classList.remove("active-cell");
+        }
+        colid = Number(e.target.getAttribute("colid"));
+        rowid = Number(e.target.getAttribute("rowid"));
+        // add to clicked cell
+        document.querySelector(`div[rid='${rowid}']`).classList.add("active-row-col");
+        document.querySelector(`div[cid='${colid}']`).classList.add("active-row-col");
+        e.target.classList.add("active-cell");
         let addressOfCell = `${String.fromCharCode(colid+65)}${rowid+1}`;
         // console.log(addressOfCell);
         cellNameInput.value = addressOfCell;
         // show formulae associated with cell;
         let cellObj = db[rowid][colid];
         formulaInput.value = cellObj.formula;
+        
     });
 
     // blur event after moving to another cell
     allCells[i].addEventListener("blur", (e)=>{
-        let newDataOfCell = e.target.textContent;
+        let newDataOfCell = e.target.innerHTML;
+        lastSelectedCell = e.target;
+        e.target.innerHTML = newDataOfCell;
         let{rowid,colid} = getRowCol(e.target);
         // console.log(db);
         // console.log(rowid, colid);
@@ -64,7 +79,7 @@ for (let i = 0; i < allCells.length; i++) {
             let cellObj = db[rowid][colid];
 
             cellObj.value = "";
-            cell.textContent = "";
+            cell.innerHTML = "";
 
             if(cellObj.formula){
                 // console.log("yes");

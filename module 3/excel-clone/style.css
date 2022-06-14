@@ -1,90 +1,148 @@
+:root{
+    --border-color:grey;
+    --cell-background:lightgray;
+}
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box  ;
+    font-size: .85rem;
+    font-family: "Roboto",sans-serif;
+}
+body{
+    overflow: hidden;
+}
+.menu-content{
+    height: 30px;
+    background-color: var(--cell-background);
+    border: .5px solid var(--border-color);
 }
 
-.menu-content, .options-content, .sheets-content{
-    height: 30px;
-    width: 100vw;
-    background-color: #12121222;
-    border: .5px solid;
+.options-content{
+    height: 20px;
+    display: flex;
 }
 #address{
     width: 50px;
-    height: 100%;
+    border: none;
     font-weight: 500;
 }
 #function{
-    width: 200px;
-    height: 100%;
     margin: 0;
+    width: 100%;
     outline: none;
     background-color: #f2f2f2;
+    outline: none;
+    border: none;
+    letter-spacing: 1px;
 }
 .cells-content{
     width: 100vw;
-    height: 86vh;
+    height: 89vh;
     background-color: #62626222;
     overflow: auto;
     position: relative;
 }
 .main-editable-cell{
-    margin-left: 30px;
+    margin-left: 40px;
     position: absolute;
-    margin-top: 30px;
+    margin-top: 20px;
 }
 .row{
     display: flex;
 
 }
-.cell{
-    width: 110px;
-    min-height: 30px;
-    border: .1px solid #999;
-    text-align: center;
+.cell, .top-row-head-cell{
+    width: 90px;
+    min-height: 20px;
+    border-left: 0.1px solid var(--border-color);
+    border-bottom: 0.1px solid var(--border-color);
     outline: none;
 }
 
 .neutral-cell{
-    width: 30px;
-    height: 30px;
-    background-color: #aaa;
+    width: 40px;
+    height: 20px;
+    background-color: var(--cell-background);
     position: absolute;
     z-index: 3;
+    border-left: 0.2px solid var(--border-color);
+    border-bottom: 0.2px solid var(--border-color);
 }
 .top-row-head{
     display: flex;
     position: absolute;
-    left: 30px;
+    left: 40px;
     top: 0px;
-    background-color: #aaa;
+    background-color: var(--cell-background);
     z-index: 2;
 
 }
 .top-row-head-cell{
-    width: 110px;
-    height: 30px;
-    border: .2px solid;
     display: flex;
     justify-content: center;
     align-items: center;
-
 }
 
 .left-col-head{
     position: absolute;
-    top: 30px;
+    top: 20px;
     z-index: 2;
-    background-color: #aaa;
+    background-color: var(--cell-background);
     
 }
 .left-col-cell{
-    width: 30px;
-    height: 30px;
-    border: .2px solid;
+    width: 40px;
+    min-height: 20px;
+    border-left: 0.1px solid var(--border-color);
+    border-bottom: 0.1px solid var(--border-color);
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
+.sheets{
+    display: flex;
+    border: 0.5px solid;
+    height: 30px;
+    background-color: var(--cell-background);
+}
+
+.add-sheet{
+    width: 30px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: green;
+    border-right: 0.1px solid var(--border-color);
+}
+
+.sheets-list{
+    display: flex;
+    height: 100%;
+    align-items: center;
+}
+
+.sheet{
+    border-right: 0.1px solid var(--border-color);
+    width: 90px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.active-sheet{
+     background-color: white;
+     font-weight: bold;
+}
+
+.active-row-col{
+    background-color: #65bb8a;
+}
+.active-cell{
+    outline: 2px solid #65bb8a;
+    border: none;
+}

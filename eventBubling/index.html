@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .div1{
+            width: 500px;
+            height: 500px;
+            background: #f223f2;
+        }
+        .div2{
+            width: 400px;
+            height: 400px;
+            background: #a2a3f2;
+        }
+        .div3{
+            width: 300px;
+            height: 300px;
+            background: #822ff2;
+        }
+        .div4{
+            width: 200px;
+            height: 200px;
+            background: #22f3f2;
+        }
+        .div5{
+            width: 100px;
+            height: 100px;
+            background: #a2a312;
+        }
+        div{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 0 10px 10px #00000022;
+            border-radius: 10px;
+        }
+        .move{
+            animation: m 3s 100ms;
+        }
+        @keyframes m {
+            from{
+                transform: scale(1.1,1.1);
+            }
+            to{
+                transform: scale(.9,.9);
+            }
+        }
+        .move2{
+            animation: m2 3s 100ms ;
+        }
+        @keyframes m2 {
+            from{
+                transform: scale(.9,.9);
+            }
+            to{
+                transform: scale(1.1,1.1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="div1 move2">
+        <div class="div2 move2">
+            <div class="div3 move2">
+                <div class="div4 move2">
+                    <div class="div5 move2">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        let div1 = document.querySelector(".div1");
+        let div2 = document.querySelector(".div2");
+        let div3 = document.querySelector(".div3");
+        let div4 = document.querySelector(".div4");
+        let div5 = document.querySelector(".div5");
+        div1.addEventListener("click",(e)=>{
+            // console.log("div1");
+            div1.classList.toggle("move")
+            div1.classList.toggle("move2")
+        })
+        div2.addEventListener("click",(e)=>{
+            // console.log("div2");
+            div2.classList.toggle("move")
+            div2.classList.toggle("move2")
+        })
+        div3.addEventListener("click",(e)=>{
+            // console.log("div3");
+            div3.classList.toggle("move")
+            div3.classList.toggle("move2")
+            
+        })
+        div4.addEventListener("click",(e)=>{
+            // console.log("div4");
+            div4.classList.toggle("move")
+            div4.classList.toggle("move2")
+        })
+        div5.addEventListener("click",(e)=>{
+            // console.log("div5");
+            div5.classList.toggle("move")
+            div5.classList.toggle("move2")
+        })
+        // its not working
+        function f(){
+            let i = 1;
+            return function(){
+                setTimeout(() => {
+                    console.log(i);
+                    i++;
+                }, 1000*i);
+            }
+        }
+        let my = f();
+        my();
+        my();
+
+    </script>
+</body>
+</html>

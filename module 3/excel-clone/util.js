@@ -45,7 +45,7 @@ function updateChildren(cellObj){
         // update value in DB
         childCellObj.value = newVal;
         // update in ui
-        document.querySelector(`div[rowid='${rowid}'][colid='${colid}']`).textContent = newVal;
+        document.querySelector(`div[rowid='${rowid}'][colid='${colid}']`).innerHTML = newVal;
         // call for child of child
         updateChildren(childCellObj);
     }

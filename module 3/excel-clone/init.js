@@ -8,13 +8,13 @@ function createCells(noOfRows){
     // top row head
     cells+="<div class='top-row-head'>";
     for(let i = 0; i < 26;i++){
-        cells+= `<div class="top-row-head-cell">${String.fromCharCode(65+i)}</div>`
+        cells+= `<div class="top-row-head-cell" cid=${i} >${String.fromCharCode(65+i)}</div>`
     }
     cells+="</div>";
     // first-col-cells
     cells+="<div class='left-col-head'>";
     for(let i = 0; i < noOfRows;i++){
-        cells+= `<div class="left-col-cell">${i+1}</div>`
+        cells+= `<div class="left-col-cell" rid=${i}>${i+1}</div>`
     }
     cells+="</div>";
     // main editable cells
@@ -22,7 +22,7 @@ function createCells(noOfRows){
     for(let i = 0 ; i < noOfRows; i++){
         cells+= "<div class='row'>";
         for(let j = 0; j < 26; j++){
-            cells+= `<div class='cell' rowid=${i} colid=${j} contentEditable></div>`;
+            cells+= `<div class='cell' rowid='${i}' colid='${j}' contentEditable></div>`;
         }
         cells+= "</div>";
     }
@@ -32,11 +32,11 @@ function createCells(noOfRows){
 createCells(sizeOfSheet);
 
 // database 
-
+let sheetsDb = [];
 let db = [];
 
-function inintDB(){
-    db = [];
+function inintDB(sheet){
+    let newSheedDb = [];
     for(let i = 0; i < sizeOfSheet; i++){
         let colData = [];
         for (let j = 0; j < 26; j++) {
@@ -50,8 +50,10 @@ function inintDB(){
             }
             colData.push(cellObj);
         }
-        db.push(colData);
+        newSheedDb.push(colData);
     }
+    db = newSheedDb;
+    sheetsDb.push(newSheedDb)
 }
 
 inintDB();
