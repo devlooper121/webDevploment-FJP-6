@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter App Using React</title>
+    <!-- react CDN  -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <!-- react DOM CDN  -->
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <!-- Babel CDN  -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        body{
+            width: 100vw;
+            height: 100vh;
+        }
+        #root{
+            margin: auto;
+            width: 500px;
+            height: 400px;
+            background-color: #a29966;
+            padding: 10px;
+            border-radius: 10px;
+            box-sizing: border-box;
+            box-shadow: 0 0 10px 10px #a2996655;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        button{
+            width: 120px;
+            height: 50px;
+            padding: 10px;
+            font-size: 2rem;
+            border-radius: 10px;
+            margin: 20px;
+            border-style: none;
+            box-shadow: 3px 2px 10px 0 #0006;
+            transition: all 100ms ease-in-out;
+            cursor: pointer;
+        }
+        button:active{
+            background-color: #34f2a2;
+            transform: scale(.9);
+        }
+        h1{
+            margin: 20px;
+            font-size: 3rem;
+            font-weight: 100;
+            border: 2px solid #a299f5;
+            border-radius: 10px;
+            padding: 13px;
+            background-color: #a299f5;
+            color: #f2f2f2;
+            width: fit-content;
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+</body>
+    <script type="text/babel">
+        // class component
+        class Counter extends React.Component{
+            constructor(){
+                super()
+                // storing variable in state
+                this.state = {
+                    count:0,
+                };
+            }
+            increment = ()=>{
+                this.setState({
+                    count : this.state.count+1,
+                })
+            }
+            decrement = ()=>{
+                this.setState({
+                    count: this.state.count-1,
+                })
+            }
+
+            render(){
+                return(
+                    <div>
+                        <h1>Counter: {this.state.count}</h1>
+                        <button onClick={this.increment}>+</button>
+                        <button onClick={this.decrement}>-</button>
+                    </div>
+                )
+            }
+        }
+        ReactDOM.render(<Counter/>, document.getElementById("root"));
+    </script>
+</html>

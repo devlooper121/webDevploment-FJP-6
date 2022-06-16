@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root">
+
+    </div>
+</body>
+<script type="text/babel">
+    // let ele = document.createElement("h1");
+    // ele.innerText = "Hello Coder";
+    let root = document.querySelector("#root");
+    // root.appendChild(ele);
+
+
+    // let ele = React.createElement("h1",{
+    //     children:['Hello Coder']
+    // })
+    // ReactDOM.render(ele,root);
+
+    //JSX -> javascript + html
+
+    function Element1() {
+        return (
+            <h1>Hello Coder</h1>
+        )
+    }
+    function Element2() {
+        return (
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum asperiores deleniti cumque facere eveniet deserunt harum inventore aperiam cum? Nemo?</p>
+        )
+    }
+    function Parent() {
+        return (
+            <div>
+                <Element1 />
+                <Element2 />
+                <Element1 />
+                <Element2 />
+                <Element3 name="Dheeraj" age="22"/>
+                <Element3 name="Neeraj" age="19"/>
+                <Element3 name="Arnav" age="7"/>
+                <Element3 name="Satyam" age="12"/>
+                <Element3 name="Subham" age="9"/>
+
+            </div>
+        )
+    }
+    // Keybord arguments in elements
+    function Element3({name="name", age="age"}){
+        return(
+            <div>
+                <h1>Name : {name}</h1>
+                <h2>Age : {age}</h2>
+            </div>
+        )
+    }
+    ReactDOM.render(<Parent />, root);
+</script>
+
+</html>
