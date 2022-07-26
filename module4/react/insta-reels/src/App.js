@@ -21,20 +21,31 @@ function App() {
       {/* <Route path="/feed">
         <Feed></Feed>
       </Route> */}
+      
       <PrivateRoute path="/feed" comp = {Feed} ></PrivateRoute>
       {/* <Route path="/profile">
         <Profile></Profile>
       </Route> */}
+
       <PrivateRoute path="/profile" comp = {Profile} ></PrivateRoute>
-      <Route path="/forget">
-      <Route path="/login">
+      
+      <RedirectToFeed path="/login" comp = {Login} ></RedirectToFeed>
+
+      {/* <Route path="/login">
         <Login></Login>
-      </Route>
-      <Route path="/signup">
+      </Route> */}
+
+      <RedirectToFeed path="/signup" comp={Signup} ></RedirectToFeed>
+
+      {/* <Route path="/signup">
         <Signup></Signup> 
-      </Route>
+      </Route> */}
+
+      <RedirectToFeed path="/forget" comp={ForgetPassword}></RedirectToFeed>
+      
+      {/* <Route path="/forget">
         <ForgetPassword></ForgetPassword>
-      </Route>
+      </Route> */}
       <Error></Error>
     </Switch>
     </AuthContextProvider>
@@ -58,6 +69,19 @@ function PrivateRoute(props){
       }
     }>
     </Route>
+  )
+}
+
+function RedirectToFeed(props){
+  const cUser = useContext(AuthContext);
+  const Component = props.comp;
+  // cUser--> null ? login: send to feed
+  return (
+    <Route {...props} render={
+      (props)=>{
+        return cUser === null ? <Component {...props} ></Component> : <Redirect {...props} to="/feed" ></Redirect>
+      }
+    } ></Route>
   )
 }
 
