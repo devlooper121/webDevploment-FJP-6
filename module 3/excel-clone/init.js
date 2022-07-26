@@ -1,5 +1,5 @@
 let cellContent = document.querySelector(".cells-content");
-const sizeOfSheet = 100;
+const noOfRows = 100;
 
 function createCells(noOfRows){
     let cells = "";
@@ -14,7 +14,7 @@ function createCells(noOfRows){
     // first-col-cells
     cells+="<div class='left-col-head'>";
     for(let i = 0; i < noOfRows;i++){
-        cells+= `<div class="left-col-cell" rid=${i}>${i+1}</div>`
+        cells+= `<div class="left-col-cell" r  id=${i}>${i+1}</div>`
     }
     cells+="</div>";
     // main editable cells
@@ -29,15 +29,15 @@ function createCells(noOfRows){
     cells+="</div>";
     cellContent.innerHTML = cells;
 }
-createCells(sizeOfSheet);
+createCells(noOfRows);
 
 // database 
 let sheetsDb = [];
 let db = [];
 
-function inintDB(sheet){
-    let newSheedDb = [];
-    for(let i = 0; i < sizeOfSheet; i++){
+function inintDb(){
+    let newSheetDb = [];
+    for(let i = 0; i < noOfRows; i++){
         let colData = [];
         for (let j = 0; j < 26; j++) {
             let name = `${String.fromCharCode(65+j)}${i+1}`;
@@ -50,12 +50,12 @@ function inintDB(sheet){
             }
             colData.push(cellObj);
         }
-        newSheedDb.push(colData);
+        newSheetDb.push(colData);
     }
-    db = newSheedDb;
-    sheetsDb.push(newSheedDb)
+    db = newSheetDb;
+    sheetsDb.push(newSheetDb)
 }
 
-inintDB();
+inintDb();
 
 // console.log(db);
