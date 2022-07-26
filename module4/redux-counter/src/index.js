@@ -3,11 +3,15 @@ import ReactDOM from 'react-dom/client';
 
 import App from './App';
 
-import reducer from './redux/reducer';
-import {createStore} from "redux"
+import reducer, { countReducer, loginReducer } from './redux/reducer';
+import {combineReducers, createStore} from "redux"
 import { Provider } from 'react-redux';
-
-const myStore = createStore(reducer);
+const rootReducers = combineReducers({
+  count: countReducer,
+  logged: loginReducer
+})
+// const myStore = createStore(reducer);
+const myStore = createStore(rootReducers)
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Provider store={myStore}>
