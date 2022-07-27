@@ -6,37 +6,60 @@ import { AuthContext } from "../Context/AuthContext"
 import { useEffect } from "react";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "../firebase";
+import { NavBar } from "./Feed";
 
 
 function Profile() {
     const cUser = useContext(AuthContext);
-    const [loding, setLoding] = useState("")
+    const [loding, setLoding] = useState(true);
+    const [user, setUser] = useState(null)
 
-    // useEffect(()=>{
-    //     (async ()=>{
-    //         if(cUser){
-    //             // read from database
-    //             const docRef = doc(db, "users", "Dheeraj");
-    //             const docSnap = await getDoc(docRef);
-    //             console.log(docSnap)
-    //         }
-    //     })()
-    // },[cUser])
+    useEffect(() => {
+        (async () => {
+            if (cUser) {
+                // read from database
+                const docRef = doc(db, "users", cUser.uid);
+                const userdata = await getDoc(docRef);
+                if (userdata.exists()) {
+                    console.log(userdata.data())
+                    setUser(userdata.data())
+                } else {
+                    console.log("NO DATA");
+                }
+                setLoding(false);
+            }
+        })()
+    }, [])
 
     return (
         <>
-            {cUser === null ? <>login again</> :
+            {loding === true ? <h1>...loding</h1> :
 
-                <>
-                    <div className="header"></div>
-                    <div className="main">
-                        <div className="pimg-container">
-                            <img className="pimg" src="https://i.pinimg.com/474x/ee/08/a5/ee08a5be6523b9b9d0e0862acd73210c.jpg" alt="profile img" />
+                <>  <NavBar></NavBar>
+                    <div className="profile-box">
+                        <div className="profile-container">
+                            <div className="pimg-container">
+                                <img className="pimg" src={user.profileImgUrl} alt="Profile Image was" />
+                            </div>
+                            <div className="details">
+                                <div className="content id setting">{user.userId}</div>
+                                <div className="content post-array">No of post : <b className="bold">{user.postIds.length}</b></div>
+                                <div className="content name">{user.name}</div>
+                                <div className="contact email">{user.email}</div>
+                            </div>
                         </div>
-                        <div className="details">
-                            <div className="content">Dheeraj</div>
-                            <div className="content">No of post <b className="bold">0</b></div>
-                            <div className="content">Email <em className="bold" >email.com</em></div>
+                        <div className="user-post-list">
+                            <ul className="post-nav">
+                                <li className="post-nav-btn"><span class="material-symbols-rounded small">
+                                    grid_on
+                                </span>POSTS</li>
+                                <li className="post-nav-btn"><span class="material-symbols-rounded small">
+                                    bookmark
+                                </span>SAVED</li>
+                            </ul>
+                        </div>
+                        <div className="my-posts">
+                            posts
                         </div>
                     </div>
                 </>
