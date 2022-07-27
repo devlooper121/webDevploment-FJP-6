@@ -6,6 +6,7 @@
 }
 .profile-box{
     padding: 30px 20px;
+    margin-top: 60px;
 }
 
 .profile-container{
@@ -27,10 +28,15 @@
     
 }
 
+.img-box{
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    border-radius:50% ;
+    outline: 1px solid #d0d0d0;
+}
 .pimg{
-    width: 9rem;
-    height: 9rem;
-    border-radius: 50%;
+    height: 150px;
 }
 
 .details{

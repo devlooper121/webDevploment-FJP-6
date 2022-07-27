@@ -29,11 +29,11 @@ function App() {
 
       <PrivateRoute path="/profile" comp = {Profile} ></PrivateRoute>
       
-      {/* <RedirectToFeed path="/login" comp = {Login} ></RedirectToFeed> */}
+      <RedirectToFeed path="/login" comp = {Login} ></RedirectToFeed>
 
-      <Route path="/login">
+      {/* <Route path="/login">
         <Login></Login>
-      </Route>
+      </Route> */}
 
       <RedirectToFeed path="/signup" comp={Signup} ></RedirectToFeed>
 

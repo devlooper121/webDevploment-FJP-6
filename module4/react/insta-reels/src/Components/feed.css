@@ -1,19 +1,25 @@
 *{
     box-sizing: border-box;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 .headerContainer{
     height: 60px;
     border-bottom: 1px solid #d0d0d0;
+    position: fixed;
+    width: 100vw;
+    top: 0;
+    background-color: #fff;
 }
 
 .header{
     height: 60px;
+    width: 100%;
     display: flex;
     align-items: center;
     max-width: 975px;
     margin: auto;
     justify-content: space-evenly;
+    position: relative;
 }
 
 .brand-left{
@@ -62,7 +68,7 @@
     display:flex;
     list-style: none;
     align-items: center;
-    width: 130px;
+    width: 180px;
     justify-content: space-between;
 }
 
@@ -85,20 +91,89 @@
     display: flex;
     width: 100vw;
     margin: auto;
-    padding: 30px 20px ;
+    margin-top: 60px;
+    overflow: hidden;
  }
  .reelContainer-top{
     width: 53%;
     display: flex;
     justify-content: right;
     /* border: 1px solid red; */
+    max-height: 80vh;
+    overflow: auto;
+    padding-top: 30px;
+ }
+ .reelContainer-top::-webkit-scrollbar{
+    display: none;
  }
  .reelContainer{
     width: 470px;
-    border: 1px solid magenta;
-    height: 100vh;
+    padding: 0 10px;
  }
  .detailContainer{
     width: 47%;
     /* border: 1px solid red; */
  }
+
+ 
+ .menu-launch{
+    position: relative;
+
+ }
+ .square{
+    width: 20px;
+    height: 20px;
+    transform: rotate(45deg);
+    background-color: #fafafa;
+    position:absolute;
+    right: 30px;
+    top: -10px;
+    box-shadow: 0 0 4px 1px #42424255;
+    z-index: 2;
+ }
+ .menu{
+    position: absolute;
+    z-index: 1;
+    background-color: #fafafa;
+    width: 230px;
+    
+    right: -30px;
+    top: 40px;
+    box-shadow: 0 0 4px 1px #42424255;
+    border-radius: 5px;
+ }
+ .menu2{
+    position: relative;
+    z-index: 4;
+    width: 230px;
+    
+    background: #fafafa;
+    border-radius: 5px;
+ }
+ .menu-list{
+    padding: 8px 16px;
+    display: flex;
+ }
+ .menu-list:hover{
+    background-color: #42424211;
+ }
+ .menu-name{
+    margin-left: 10px;
+ }
+ .logout-menu{
+    border-top: 2px solid #42424244;
+ }
+ input:focus{
+    border: none;
+    outline: none;
+    color: #111;
+    font-weight: 400;
+ }
+.small {
+    cursor: pointer;
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 100,
+  'GRAD' -25,
+  'opsz' 10
+}

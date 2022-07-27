@@ -39,7 +39,9 @@ function Profile() {
                     <div className="profile-box">
                         <div className="profile-container">
                             <div className="pimg-container">
-                                <img className="pimg" src={user.profileImgUrl} alt="Profile Image was" />
+                                <div className="img-box">
+                                <img className="pimg" src={user.profileImgUrl || "https://idronline.org/wp-content/uploads/2021/01/Screen-Shot-2019-02-19-at-1.23.40-PM-300x300-3.jpg.webp"} alt="Profile Image was" />
+                                </div>
                             </div>
                             <div className="details">
                                 <div className="content id setting">{user.userId}</div>
