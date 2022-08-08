@@ -1,0 +1,11 @@
+.bc1{
+    position: fixed;
+    width: 100vw;
+    height: 98vh;
+    top: 0;
+    left: 0;
+    background-color:transparent;
+    /* background: #000; */
+    cursor:initial;
+    z-index: 0;
+}

@@ -1,0 +1,15 @@
+.comments{
+    width: 270px;
+    height: 310px;
+    background: #fffd;
+    position: absolute;
+    z-index: 100;
+}
+
+.comment-box{
+    max-height: 250px;
+    overflow-y: scroll;
+}
+.comment-box::-webkit-scrollbar{
+    display: none;
+}

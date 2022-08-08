@@ -1,0 +1,37 @@
+*{
+    box-sizing: border-box;
+    /* overflow: hidden; */
+}
+
+
+
+ /* main container css  */
+ .mainContainer{
+    display: flex;
+    width: 100vw;
+    margin: auto;
+    margin-top: 60px;
+    overflow: hidden;
+ }
+ .reelContainer-top{
+    width: 53%;
+    display: flex;
+    justify-content: right;
+    /* border: 1px solid red; */
+    max-height: 80vh;
+    overflow: auto;
+    padding-top: 30px;
+ }
+ .reelContainer-top::-webkit-scrollbar{
+    display: none;
+ }
+ .reelContainer{
+    width: 470px;
+    padding: 0 10px;
+ }
+ .detailContainer{
+    width: 47%;
+    /* border: 1px solid red; */
+ }
+
+ 

@@ -1,0 +1,89 @@
+.headerContainer{
+    height: 60px;
+    border-bottom: 1px solid #d0d0d0;
+    position: fixed;
+    width: 100vw;
+    top: 0;
+    background-color: #fff;
+    z-index: 10;
+}
+
+.header{
+    height: 60px;
+    width: 935px;
+    display: flex;
+    align-items: center;
+    max-width: 975px;
+    margin: auto;
+    justify-content: space-evenly;
+    position: relative;
+}
+
+.brand-left{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+
+.brand-logo{
+    width: 110px;
+    margin-left: 15px;
+    cursor: pointer;
+}
+
+.search-mid{
+    height: 36px;
+    width: 100%;
+}
+
+.searchBox{
+    background-color: #f0f0f0;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 1rem;
+    width:100%;
+    height: 35px;
+    color: gray;
+    display: flex;
+    align-items: center;
+    font-weight: 200;
+    cursor: text;
+}
+
+.searchBox > span{
+    margin-right: 8px;
+}
+
+.nav-right{
+    width: 100%;
+    display: flex;
+    justify-content: right;
+}
+.navBar{
+    display:flex;
+    list-style: none;
+    align-items: center;
+    min-width: 200px;
+    justify-content: space-between;
+}
+
+.navLink{
+    cursor: pointer;
+}
+.navLink span{
+   font-size: 2rem;
+}
+.low {
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 200,
+    'GRAD' 0,
+    'opsz' 30
+}
+.menu-launch{
+    position: relative;
+
+ }
+ 

@@ -1,11 +1,11 @@
 // npm install react-router-dom@5.3.1
-
-import Error from "./Components/Error";
-import Profile from "./Components/Profile";
-import Feed from "./Components/Feed";
-import ForgetPassword from "./Components/ForgetPassword";
-import Login from "./Components/Login";
-import Signup from "./Components/Signup";
+import "./App.css"
+import Error from "./Components/Error/Error";
+import Profile from "./Components/profile/Profile";
+import Feed from "./Components/feed/Feed";
+import ForgetPassword from "./Components/Forget/ForgetPassword";
+import Login from "./Components/login/Login";
+import Signup from "./Components/signup/Signup";
 
 import {Switch, Route, Redirect} from "react-router-dom"
 
@@ -30,6 +30,7 @@ function App() {
       <PrivateRoute path="/profile" comp = {Profile} ></PrivateRoute>
       
       <RedirectToFeed path="/login" comp = {Login} ></RedirectToFeed>
+      {/* <RedirectToFeed path="/" comp = {Login} ></RedirectToFeed> */}
 
       {/* <Route path="/login">
         <Login></Login>
@@ -63,9 +64,9 @@ function PrivateRoute(props){
     <Route
     {...props} 
     render={
-      (props)=>{
-        console.log(props)
-        return cUser!=null ? <Component {...props} > </Component> : <Redirect {...props} to="/login"></Redirect>
+      ()=>{
+        
+        return cUser!=null ? <props.comp> </props.comp> : <Redirect to="/login"></Redirect>
       }
     }>
     </Route>
@@ -77,8 +78,9 @@ function RedirectToFeed(props){
   const Component = props.comp;
   // cUser--> null ? login: send to feed
   return (
-    <Route {...props} render={
-      (props)=>{
+    <Route {...props} 
+    render={
+      ()=>{
         return cUser === null ? <Component {...props} ></Component> : <Redirect {...props} to="/feed" ></Redirect>
       }
     } ></Route>

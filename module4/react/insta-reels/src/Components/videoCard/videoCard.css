@@ -1,20 +1,23 @@
 video {
-    border: 1px solid red;
     width: 270px;
     height: 480px;
-    position: relative;
-    z-index: 1;
+    position: fixed;
+    z-index: 0;
+    background: #000;
 }
 .action{
     width: 270px;
     height: 480px;
     position: absolute;
-    z-index: 0;
-    border: 1px solid red;
+    z-index: 10;
     top: 90px;
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
+}
+.shrink{
+    transform: scale(.35)
+    translateY(-90%);
 }
 .video-info{
     width: 75%;
@@ -24,11 +27,15 @@ video {
     position: relative;
     z-index: 2;
 }
+.post.name{
+    color: #fff;
+}
 .post-info{
     width: 100%;
     display: flex;
     align-items: center;
     margin-bottom: 5px;
+    color: #fff;
 }
 .post-info>span{
     margin-right: 15px;
@@ -48,7 +55,6 @@ video {
     height: 150px;
     justify-content: space-around;
     margin-bottom: 80px;
-    background: #fff5;
     position: relative;
     z-index: 2;
 }
@@ -56,5 +62,16 @@ video {
     display: flex;
     flex-direction: column;
     align-items: center;
-    color: #232323;
+    color: #ddd;
 }
+.fill {
+    font-variation-settings:
+    'FILL' 1,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 48;
+    color: #fff;
+  }
+
+  /* kjhkjkjhkj */
+

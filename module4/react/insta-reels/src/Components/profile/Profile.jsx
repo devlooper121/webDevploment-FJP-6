@@ -2,12 +2,12 @@ import "./profile.css"
 import React, { useContext, useState } from "react"
 
 // Context import from AuthContext.js for logged user info and main loder
-import { AuthContext } from "../Context/AuthContext"
+import { AuthContext } from "../../Context/AuthContext"
 import { useEffect } from "react";
 import { doc, getDoc } from "firebase/firestore";
-import { db } from "../firebase";
-import { NavBar } from "./Feed";
-
+import { db } from "../../firebase";
+import { NavBar } from "../NavBar/NavBar";
+import LoderProfile from "./profileloder";
 
 function Profile() {
     const cUser = useContext(AuthContext);
@@ -29,18 +29,18 @@ function Profile() {
                 setLoding(false);
             }
         })()
-    }, [])
+    }, [cUser])
 
     return (
-        <>
-            {loding === true ? <h1>...loding</h1> :
+        <><NavBar></NavBar>
+            {loding === true ? <div className="profile-loder"><LoderProfile/></div> :
 
-                <>  <NavBar></NavBar>
+                <>  
                     <div className="profile-box">
                         <div className="profile-container">
                             <div className="pimg-container">
                                 <div className="img-box">
-                                <img className="pimg" src={user.profileImgUrl || "https://idronline.org/wp-content/uploads/2021/01/Screen-Shot-2019-02-19-at-1.23.40-PM-300x300-3.jpg.webp"} alt="Profile Image was" />
+                                    <img className="pimg" src={user.profileImgUrl || "https://idronline.org/wp-content/uploads/2021/01/Screen-Shot-2019-02-19-at-1.23.40-PM-300x300-3.jpg.webp"} alt="Profile" />
                                 </div>
                             </div>
                             <div className="details">

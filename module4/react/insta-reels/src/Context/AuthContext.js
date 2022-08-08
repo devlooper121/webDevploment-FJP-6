@@ -6,7 +6,7 @@ import { onAuthStateChanged } from "firebase/auth";
 export const AuthContext = React.createContext();
 
 // jo bhi isme pass hoga / wrap hoga wo props.children me milega
-export function AuthContextProvider({children}) {
+export function AuthContextProvider(props) {
     const [cUser, setUser] = useState(null);
     const [mainLoder,setMainLoder] = useState(true);
     
@@ -23,7 +23,7 @@ export function AuthContextProvider({children}) {
 
     return (
         <AuthContext.Provider value={cUser}>
-            {mainLoder === false && children // show children only if mainloder is false
+            {mainLoder === false && props.children // show children only if mainloder is false
             }
         </AuthContext.Provider>
     )

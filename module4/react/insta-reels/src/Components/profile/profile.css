@@ -4,9 +4,12 @@
     box-sizing: border-box;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
+
+
 .profile-box{
     padding: 30px 20px;
     margin-top: 60px;
+    
 }
 
 .profile-container{
@@ -36,7 +39,9 @@
     outline: 1px solid #d0d0d0;
 }
 .pimg{
-    height: 150px;
+    height: 100%;
+    width: 100%;
+    object-fit:cover;
 }
 
 .details{
