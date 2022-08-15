@@ -3,9 +3,9 @@
 export const countReducer = (state=0, action)=>{
     switch(action.type){
         case "INCREMENT":
-            return state+1
+            return state+action.paylode
         case "DECREMENT":
-            return state-1;
+            return state-action.paylode;
         default:
             return state
     }

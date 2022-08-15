@@ -40,7 +40,7 @@ function Profile() {
                         <div className="profile-container">
                             <div className="pimg-container">
                                 <div className="img-box">
-                                    <img className="pimg" src={user.profileImgUrl || "https://idronline.org/wp-content/uploads/2021/01/Screen-Shot-2019-02-19-at-1.23.40-PM-300x300-3.jpg.webp"} alt="Profile" />
+                                    <img className="pimg" src={user.profileImgUrls[0] || "https://idronline.org/wp-content/uploads/2021/01/Screen-Shot-2019-02-19-at-1.23.40-PM-300x300-3.jpg.webp"} alt="Profile" />
                                 </div>
                             </div>
                             <div className="details">

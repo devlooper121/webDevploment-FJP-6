@@ -1,9 +1,17 @@
 
-
 .prd-img{
     width: 120px;
 }
-
+.middle-detail{
+    padding: 20px;
+}
+.middle-detail ul{
+    list-style: none;
+}
+.middle-detail ul li{
+    margin-top: 7px;
+    font-size: 1rem;
+}
 .list-prd-seller{
     font-size: 1rem;
     color: #393939fa;
@@ -31,10 +39,14 @@
     width: 25px;
     border: none;
     border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .btn-remove{
-    color: gray;
+    color: grey;
     font-weight: 500;
-    
+    margin-left: 20px;
+    box-shadow: 0 0 0 2px #39393911;
 }

@@ -4,11 +4,11 @@ import { Menu } from "../Menu/Menu";
 import { Link } from "react-router-dom";
 
 import styles from "./navbar.module.css"
-import { Backdrop1 } from "../Bacdrop/backdrop";
+import { Backdrop1, BackDrop2 } from "../Bacdrop/backdrop";
 
 export const NavBar = () => {
     const [menuVisible, setMenuVisible] = useState(false);
-    const [searching, setSearching] = useState(false)
+    const [searching, setSearching] = useState(false);
     const changeVisibility = () => {
         if (menuVisible) {
             setMenuVisible(false)
@@ -38,21 +38,25 @@ export const NavBar = () => {
                 </div>
                 <div className={styles["nav-right"]}>
                     <ul className={styles["navBar"]}>
-                        <Link to="/feed">
-                            <li className={styles["navLink"]}>
+                        <li className={styles["navLink"]}>
+                            <Link to="/feed">
                                 <span className="material-symbols-rounded">
                                     home
                                 </span>
-                            </li>
-                        </Link>
+                            </Link>
+                        </li>
                         <li className={styles["navLink"]}>
                             <span className="material-symbols-rounded">
                                 movie
                             </span>
                         </li>
-                        <li className={styles["navLink"]}><span className="material-symbols-rounded">
-                            add_box
-                        </span></li>
+                        <li className={styles["navLink"]}>
+                            <Link to="/new-post">
+                                <span className="material-symbols-rounded">
+                                    add_box
+                                </span>
+                            </Link>
+                        </li>
                         <li className={styles["navLink"]}>
                             <span className="material-symbols-rounded">
                                 favorite
@@ -65,10 +69,10 @@ export const NavBar = () => {
                             </span>
                             {menuVisible !== true ? "" :
                                 <>
-                                <Backdrop1 onclick={changeVisibility}/>
-                                <Menu></Menu>
+                                    <Backdrop1 onclick={changeVisibility} />
+                                    <Menu></Menu>
                                 </>
-                                }
+                            }
                         </li>
 
                     </ul>

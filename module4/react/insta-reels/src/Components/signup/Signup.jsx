@@ -64,7 +64,7 @@ function Signup() {
                     name,
                     postIds: [],
                     userId: userCred.user.uid,
-                    profileImgUrl: ""
+                    profileImgUrls: []
                 })
             } catch (err) {
                 setError(err.message)

@@ -1,0 +1,12 @@
+.settingsPage{
+    margin-top: 60px;
+
+}
+.settingsPage img {
+    width: 150px;
+    height: 150px;
+    background-color: #f2f2f2;
+    border-radius: 50%;
+    margin-left: 20px;
+    object-fit: cover;
+}

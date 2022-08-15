@@ -1,13 +1,19 @@
+:root{
+    --videoCardWidth : 300px;
+    --videoCardHeight : 540px;
+}
+
 video {
-    width: 270px;
-    height: 480px;
+    width: var(--videoCardWidth);
+    height: var(--videoCardHeight);
     position: fixed;
     z-index: 0;
     background: #000;
+
 }
 .action{
-    width: 270px;
-    height: 480px;
+    width: var(--videoCardWidth);
+    height: var(--videoCardHeight);
     position: absolute;
     z-index: 10;
     top: 90px;

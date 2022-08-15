@@ -16,18 +16,22 @@ export const Menu = () => {
                         <div className={styles["menu-name"]}>Profile</div>
                     </div>
                 </Link>
-                <div className={styles["menu-list"]}>
-                    <span className="material-symbols-rounded">
-                        bookmark
-                    </span>
-                    <div className={styles["menu-name"]}>Saved</div>
-                </div>
+                
+                    <div className={styles["menu-list"]}>
+                        <span className="material-symbols-rounded">
+                            bookmark
+                        </span>
+                        <div className={styles["menu-name"]}>Saved</div>
+                    </div>
+                <Link to="/setting">
                 <div className={styles["menu-list"]}>
                     <span className="material-symbols-rounded">
                         settings
                     </span>
                     <div className={styles["menu-name"]}>Settings</div>
                 </div>
+                </Link>
+
                 <div onClick={logOut} className={`${styles["menu-list"]} ${ styles["logout-menu"]}`}>
                     logout
                 </div>

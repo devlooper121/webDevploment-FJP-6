@@ -12,6 +12,8 @@ import {Switch, Route, Redirect} from "react-router-dom"
 // for all page, user login and all global user controls
 import { AuthContext, AuthContextProvider } from "./Context/AuthContext";
 import { useContext } from "react";
+import NewPost from "./Components/newPost/newpost";
+import ProfileSetting from "./Components/profile/settings/Setting";
 
 
 function App() {
@@ -21,8 +23,9 @@ function App() {
       {/* <Route path="/feed">
         <Feed></Feed>
       </Route> */}
-      
       <PrivateRoute path="/feed" comp = {Feed} ></PrivateRoute>
+      <PrivateRoute path="/new-post" comp = {NewPost} ></PrivateRoute>
+      <PrivateRoute path="/setting" comp = {ProfileSetting} ></PrivateRoute>
       {/* <Route path="/profile">
         <Profile></Profile>
       </Route> */}
@@ -47,6 +50,8 @@ function App() {
       {/* <Route path="/forget">
         <ForgetPassword></ForgetPassword>
       </Route> */}
+      <Route path="/" render={()=><Redirect to="/login"></Redirect>}></Route> 
+
       <Error></Error>
     </Switch>
     </AuthContextProvider>
@@ -66,7 +71,7 @@ function PrivateRoute(props){
     render={
       ()=>{
         
-        return cUser!=null ? <props.comp> </props.comp> : <Redirect to="/login"></Redirect>
+        return cUser!=null ? <Component/> : <Redirect to="/login"></Redirect>
       }
     }>
     </Route>

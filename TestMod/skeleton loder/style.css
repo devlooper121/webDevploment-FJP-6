@@ -1,0 +1,69 @@
+.folder{
+    width: 100vw;
+    height: 10px;
+    background: #f1f1f1;
+    overflow: hidden;
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    border-radius: 5px;
+    margin-top: 200px;
+
+}
+
+.folder2{
+    width: 150px;
+    height: 150px;
+    background: #f1f1f1;
+    overflow: hidden;
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    border-radius: 50%;
+    margin-top: 200px;
+    position: relative;
+}
+
+.run{
+    width: 60px;
+    height: 100%;
+    background: #dadada;
+
+    box-shadow: 0 0 5px 100px #ccc2;
+    animation-name: running;
+    animation-duration: 1.3s;
+    animation-timing-function:linear;
+    animation-iteration-count: infinite;
+    animation-direction:normal;
+}
+
+@keyframes running {
+    from{
+        transform: translateX(0vw);
+    }
+    to {
+        transform: translateX(100vw);
+    }
+}
+/* .run::before{
+    content: "";
+    width: 30px;
+    height: 30px;
+    background: #eee;
+    display: inline-block;
+    position: absolute;
+    right: -30px;
+    box-shadow: 0 0 5px .5px #ddd;
+
+}
+.run::after{
+    content: "";
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    background: #eee;
+    position: absolute;
+    left: -30px;
+    box-shadow: 0 0 100px 10px #d0d;
+
+} */

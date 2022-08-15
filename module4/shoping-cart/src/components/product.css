@@ -5,20 +5,30 @@
 
 .list-brand-name{
     font-weight: 900;
-    font-size: 1rem;
+    font-size: .8rem;
     color: #67676777;
     list-style: none;
 }
-
-
-
-.list-prd-price{
-    font-weight: 900;
-    font-size: 1.5rem;
+.card-img-top{
+    height: 80%;
+    object-fit: contain;
+}
+.card-text{
+    margin: 0;
+}
+.row-c{
+    display: flex;
+    flex-direction: column;
+}.list-group{
     list-style: none;
 }
-
-.list-group-flush{
-    margin-left: 20px;
+.list-prd-price-c{
+    font-weight: 500;
+    font-size: .9rem;
+    list-style: none;
 }
+.add-btn{
+    margin-top: 10px;
+}
+
 

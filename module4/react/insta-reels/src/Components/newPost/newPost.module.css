@@ -1,0 +1,18 @@
+.uploadArea{
+    margin-left: 20%;
+    margin-top: 60px;
+    padding: 1rem;
+}
+input[type="file"] {
+    position: absolute;
+    z-index: 1;
+}
+
+#videoInput::-webkit-file-upload-button{
+    visibility: hidden;
+}
+.preview {
+    width: var(--videoCardWidth);
+    height: var(--videoCardHeight);
+    /* background: #ff06; */
+}
