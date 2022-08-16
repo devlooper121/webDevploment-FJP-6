@@ -4,24 +4,24 @@ import styles from "./loding.module.css"
 
 const Loding = () => {
     return <React.Fragment>
-        <div class={styles.backdrop}></div>
-        <div class={styles["loder-box"]}>
-            <div class={styles.loder}>
-                <div class={styles.circle}></div>
+        <div className={styles.backdrop}></div>
+        <div className={styles["loder-box"]}>
+            <div className={styles.loder}>
+                <div className={styles.circle}></div>
             </div>
-            <div class={styles.spike} id={styles["top"]}></div>
-            <div class={styles.spike} id={styles["left"]}></div>
-            <div class={styles.spike} id={styles["right"]}></div>
-            <div class={styles.spike} id={styles["bottom"]}></div>
-            <div class={styles.round} id={styles["top1"]}></div>
-            <div class={styles.round} id={styles["left1"]}></div>
-            <div class={styles.round} id={styles["bottom1"]}></div>
-            <div class={styles.round} id={styles["left1"]}></div>
+            <div className={styles.spike} id={styles["top"]}></div>
+            <div className={styles.spike} id={styles["left"]}></div>
+            <div className={styles.spike} id={styles["right"]}></div>
+            <div className={styles.spike} id={styles["bottom"]}></div>
+            <div className={styles.round} id={styles["top1"]}></div>
+            <div className={styles.round} id={styles["left1"]}></div>
+            <div className={styles.round} id={styles["bottom1"]}></div>
+            <div className={styles.round} id={styles["right1"]}></div>
 
         </div>
-        <div class={styles["loding"]}>
+        <div className={styles["loding"]}>
             <h1>Loding</h1>
-            <div class={styles["spinner"]}></div>
+            <div className={styles["spinner"]}></div>
         </div>
     </React.Fragment>
 }

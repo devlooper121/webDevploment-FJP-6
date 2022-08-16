@@ -4,10 +4,10 @@ import React, { useContext, useState } from "react"
 // Context import from AuthContext.js for logged user info and main loder
 import { AuthContext } from "../../Context/AuthContext"
 import { useEffect } from "react";
-import { doc, getDoc } from "firebase/firestore";
-import { db } from "../../firebase";
+
 import { NavBar } from "../NavBar/NavBar";
 import LoderProfile from "./profileloder";
+import { findUserByUID } from "../functions/util";
 
 function Profile() {
     const cUser = useContext(AuthContext);
@@ -15,19 +15,14 @@ function Profile() {
     const [user, setUser] = useState(null)
 
     useEffect(() => {
-        (async () => {
-            if (cUser) {
-                // read from database
-                const docRef = doc(db, "users", cUser.uid);
-                const userdata = await getDoc(docRef);
-                if (userdata.exists()) {
-                    console.log(userdata.data())
-                    setUser(userdata.data())
-                } else {
-                    console.log("NO DATA");
-                }
-                setLoding(false);
+        (async ()=>{
+            try{
+                const user = await findUserByUID(cUser.uid);
+                setUser(user)
+            }catch(err){
+                console.log(err.message);
             }
+            setLoding(false)
         })()
     }, [cUser])
 
@@ -52,10 +47,10 @@ function Profile() {
                         </div>
                         <div className="user-post-list">
                             <ul className="post-nav">
-                                <li className="post-nav-btn"><span class="material-symbols-rounded small">
+                                <li className="post-nav-btn"><span className="material-symbols-rounded small">
                                     grid_on
                                 </span>POSTS</li>
-                                <li className="post-nav-btn"><span class="material-symbols-rounded small">
+                                <li className="post-nav-btn"><span className="material-symbols-rounded small">
                                     bookmark
                                 </span>SAVED</li>
                             </ul>

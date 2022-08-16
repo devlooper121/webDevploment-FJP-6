@@ -6,7 +6,7 @@ import { createUserWithEmailAndPassword } from "firebase/auth"
 import { setDoc, doc } from "firebase/firestore"
 
 import useInput from "../../Hooks/input-hook"
-import { emailValidation, passwordValidator, userNameValidator } from "../functions/validation"
+import { emailValidation, passwordValidator, nameValidator } from "../functions/validation"
 
 import Card from "../UI/Card"
 import Input from "../UI/Input"
@@ -45,7 +45,7 @@ function Signup() {
         inputHandler: nameHandler,
         inputBlurHandler: nameBlurHandler,
         reset: resetName
-    } = useInput(userNameValidator);
+    } = useInput(nameValidator);
 
     let isFormValid = false;
     if (isEmailValid === true && isPasswordValid === true && isNameValid === true) {
@@ -64,7 +64,7 @@ function Signup() {
                     name,
                     postIds: [],
                     userId: userCred.user.uid,
-                    profileImgUrls: []
+                    profileImgUrls: ["https://idronline.org/wp-content/uploads/2021/01/Screen-Shot-2019-02-19-at-1.23.40-PM-300x300-3.jpg.webp"]
                 })
             } catch (err) {
                 setError(err.message)

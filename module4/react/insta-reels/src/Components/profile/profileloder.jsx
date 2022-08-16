@@ -18,10 +18,10 @@ const LoderProfile = () => {
             </div>
             <div className="user-post-list folder"><p className="run"></p>  
                 <ul className="post-nav">
-                    <li className="post-nav-btn"><span class="material-symbols-rounded small">
+                    <li className="post-nav-btn"><span className="material-symbols-rounded small">
                         grid_on
                     </span>POSTS</li>
-                    <li className="post-nav-btn"><span class="material-symbols-rounded small">
+                    <li className="post-nav-btn"><span className="material-symbols-rounded small">
                         bookmark
                     </span>SAVED</li>
                 </ul>

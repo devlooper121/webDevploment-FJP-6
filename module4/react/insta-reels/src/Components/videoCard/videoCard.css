@@ -3,7 +3,7 @@
     --videoCardHeight : 540px;
 }
 
-video {
+.video {
     width: var(--videoCardWidth);
     height: var(--videoCardHeight);
     position: fixed;

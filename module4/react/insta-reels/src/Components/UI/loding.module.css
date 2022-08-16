@@ -90,7 +90,7 @@
 }
 
 #top{
-    animation: a1 10s infinite normal;
+    animation: a1 10s infinite;
     top: 55px;
 }
 #right{
@@ -226,7 +226,7 @@
 }
 
 #top1{
-    animation: a11 10s infinite normal;
+    animation: a11 10s infinite;
     top: 55px;
     left: 0;
 }

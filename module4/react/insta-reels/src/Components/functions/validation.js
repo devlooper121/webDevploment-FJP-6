@@ -34,7 +34,13 @@ export const passwordValidator= (password)=>{
 
 export const userNameValidator = (name)=>{
     if(name==="") return "can not be empty"
-    if(name.length < 3 || name.length > 20) return "must be 3-20 character long only.";
-    if(name.charAt(0).match(/[^a-zA-Z_]/)) return "first character can not be any special character or numeric.";
+    if(name.length < 3 || name.length > 50) return "must be 3-50 character long only.";
+    if(name.match(/[^a-zA-Z0-9_]/)) return "username must not have any special character.";
+    return true
+}
+
+export const nameValidator = (name)=>{
+    if(name==="") return "name can not be empty"
+    if(name.length < 3 || name.length > 30) return "name must be 3-30 character long only.";
     return true
 }

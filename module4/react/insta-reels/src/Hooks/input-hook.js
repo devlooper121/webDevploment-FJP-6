@@ -24,6 +24,7 @@ const useInput = (validator) => {
 
     return {
         input,
+        setInput,
         isValid,
         isInvalid,
         inputHandler,

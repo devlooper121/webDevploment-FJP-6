@@ -51,7 +51,7 @@ export const VideoCard = () => {
                     <video 
                         loop
                         autoPlay
-                        className={videoShrink ? "shrink" : ""} 
+                        className={videoShrink ? "shrink video" : "video"} 
                         onClick={(e) => { console.log("video");setVideoShrink(false); return playPause() }} 
                         src={link}
                         ref={videoRef}
