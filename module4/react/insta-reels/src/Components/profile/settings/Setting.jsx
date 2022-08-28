@@ -95,7 +95,7 @@ const ProfileSetting = () => {
         if (profileImg) {
             // const compressImage = resizeFile(profileImg);
             const metadata = {
-                contentType: 'image/jpeg'
+                contentType: 'image/*'
             };
 
             // Upload file and metadata to the object 'images/mountains.jpg'
