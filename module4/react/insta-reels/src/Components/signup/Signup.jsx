@@ -1,9 +1,8 @@
 import React, { useState } from "react"
 import { Link } from "react-router-dom"
 
-import { auth, db } from "../../firebase"
+import { auth} from "../../firebase"
 import { createUserWithEmailAndPassword } from "firebase/auth"
-import { setDoc, doc } from "firebase/firestore"
 
 import useInput from "../../Hooks/input-hook"
 import { emailValidation, passwordValidator, nameValidator } from "../functions/validation"
@@ -14,6 +13,7 @@ import Button from "../UI/Button"
 import Logo from "../welcome/logo"
 
 import styles from "../login/login.module.css"
+import { setDataWithID } from "../functions/util"
 
 function Signup() {
     const [error, setError] = useState("")
@@ -58,8 +58,8 @@ function Signup() {
             try {
                 setError("")
                 setLoder(true)
-                const userCred = await createUserWithEmailAndPassword(auth, email, password)
-                await setDoc(doc(db, "users", userCred.user.uid), {
+                const userCred = await createUserWithEmailAndPassword(auth, email, password);
+                setDataWithID("users",userCred.user.uid, {
                     email,
                     name,
                     postIds: [],

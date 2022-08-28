@@ -91,13 +91,6 @@
     font-size: .9rem;
 }
 
-.my-posts{
-    width: 935px;
-    margin: auto;
-    
-}
-
-
 .small {
   font-variation-settings:
   'FILL' 0,
@@ -109,6 +102,11 @@
 span.small{
     margin-right: 5px;
 }
-
+.my-posts{
+    width: 935px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+}
 
 

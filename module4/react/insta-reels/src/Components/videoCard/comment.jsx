@@ -1,10 +1,37 @@
 import { useRef } from "react"
 import styles from "./comment.module.css"
 import CommentCard from "./commentCard"
+import { useContext, useState, useEffect } from "react"
+import {AuthContext} from "../../Context/AuthContext"
+import { updateDocByCollection, findUserByUID } from "../functions/util"
+
 
 const Comment = (props) => {
+    const {cUser} = useContext(AuthContext);
+    const [user, setUser] = useState(null);
+    const profileImgUrl = user ? user.profileImgUrls[0]:"https://idronline.org/wp-content/uploads/2021/01/Screen-Shot-2019-02-19-at-1.23.40-PM-300x300-3.jpg.webp";
+    // const userName = user ? user.userId : "loding..."
+    useEffect(() => {
+        (async () => {
+            try {
+                // console.log(props.uid);
+                const user = await findUserByUID(cUser.uid);
+                setUser(user)
+                // console.log(user);
+            } catch (err) {
+                console.log(err.message);
+            }
+        })()
+    }, [])
+    // console.log(props.commentArr);
     const postComment = () => {
         console.log(inputRef.current.innerText);
+        const msg = inputRef.current.innerText.trim();
+        
+        if(msg)
+            updateDocByCollection("reels", props.id, {
+                comments:[ {uid:cUser.uid, msg, date:Date.now(), likes:[]}, ...props.commentArr]
+            })
         inputRef.current.innerText = ""
     }
     const inputRef = useRef();
@@ -14,39 +41,17 @@ const Comment = (props) => {
                 keyboard_backspace
             </span>Comments</div>
             <div className={styles["comment-box"]}>
-                <CommentCard data={{
-                    name: "Siksha",
-                    date: "2 min ago",
-                    comment: "I love this video this is cool i lovvvvvvvvv",
-                    likes: "2 likes"
-                }} />
-                <CommentCard data={{
-                    name: "SKumar",
-                    date: "20 min ago",
-                    comment: "Awsome  video this is cool i lovvvvvvvvv",
-                    likes: "2 likes"
-                }} />
-                <CommentCard data={{
-                    name: "Siksha",
-                    date: "2 min ago",
-                    comment: "I love this video this is cool i lovvvvvvvvv",
-                    likes: "2 likes"
-                }} />
-                <CommentCard data={{
-                    name: "Siksha",
-                    date: "2 min ago",
-                    comment: "I love this video this is cool i lovvvvvvvvv",
-                    likes: "2 likes"
-                }} />
-                <CommentCard data={{
-                    name: "Siksha",
-                    date: "2 min ago",
-                    comment: "I love this video this is cool i lovvvvvvvvv",
-                    likes: "2 likes"
-                }} />
+                {props.commentArr.map(comment=>{
+                    // console.log(comment);
+                    return (
+                        <CommentCard key={+Math.random()} {...comment} />
+                    )
+                })}
+                
+                
             </div>
             <div className={styles.newComment}>
-                <img src="https://cdn.pixabay.com/photo/2015/03/04/22/35/avatar-659652__340.png" alt="" />
+                <img src={profileImgUrl} alt="profile" />
                 <span ref={inputRef} className={styles.input} contentEditable ></span>
                 <button onClick={postComment} type="button">post</button>
             </div>

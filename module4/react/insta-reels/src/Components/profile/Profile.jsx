@@ -8,18 +8,20 @@ import { useEffect } from "react";
 import { NavBar } from "../NavBar/NavBar";
 import LoderProfile from "./profileloder";
 import { findUserByUID } from "../functions/util";
+import PostItem from "./PostItem";
 
 function Profile() {
-    const cUser = useContext(AuthContext);
+    const { cUser, reelsData } = useContext(AuthContext);
     const [loding, setLoding] = useState(true);
-    const [user, setUser] = useState(null)
+    const [user, setUser] = useState(null);
 
     useEffect(() => {
-        (async ()=>{
-            try{
+        (async () => {
+            try {
                 const user = await findUserByUID(cUser.uid);
                 setUser(user)
-            }catch(err){
+                // console.log(user);
+            } catch (err) {
                 console.log(err.message);
             }
             setLoding(false)
@@ -28,9 +30,9 @@ function Profile() {
 
     return (
         <><NavBar></NavBar>
-            {loding === true ? <div className="profile-loder"><LoderProfile/></div> :
+            {loding === true ? <div className="profile-loder"><LoderProfile /></div> :
 
-                <>  
+                <>
                     <div className="profile-box">
                         <div className="profile-container">
                             <div className="pimg-container">
@@ -56,7 +58,13 @@ function Profile() {
                             </ul>
                         </div>
                         <div className="my-posts">
-                            posts
+                            {reelsData.filter((data)=>data.value.uid===cUser.uid).map(data=>{
+                                return (<PostItem
+                                    key={data.key}
+                                    id={data.key}
+                                    url={data.value.url}
+                                />)
+                            })}
                         </div>
                     </div>
                 </>

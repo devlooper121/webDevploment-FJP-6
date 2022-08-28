@@ -1,21 +1,36 @@
 import styles from "./commentCard.module.css"
-
+import React, {useState, useEffect} from "react";
+import { findUserByUID, timeSince } from "../functions/util";
 
 const CommentCard = (props) => {
-    const { name, comment, date, likes } = props.data;
-
+    const { uid, msg, date, likes } = props;
+    const [user, setUser] = useState(null);
+    const profileImgUrl = user ? user.profileImgUrls[0]:"https://idronline.org/wp-content/uploads/2021/01/Screen-Shot-2019-02-19-at-1.23.40-PM-300x300-3.jpg.webp";
+    const userName = user ? user.userId : "loding..."
+    useEffect(() => {
+        (async () => {
+            try {
+                // console.log(props.uid);
+                const user = await findUserByUID(uid);
+                setUser(user)
+                // console.log(user);
+            } catch (err) {
+                console.log(err.message);
+            }
+        })()
+    }, [])
     return (
         <div className={styles["comment-card"]}>
-            <img  src="https://t3.ftcdn.net/jpg/03/46/83/96/240_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws.jpg" alt="commenter" />
+            <img  src={profileImgUrl} alt="commenter" />
             <div className={styles.details}>
                 <div className={styles.content}>
-                    <p className={styles["user-name"]} ><b>{name}</b> <span>{comment}</span></p>
+                    <p className={styles["user-name"]} ><b>{userName}</b> <span>{msg}</span></p>
                     
 
                 </div>
                 <div className={styles["details-other"]}>
-                    <span>{date}</span>
-                    <span>{likes}</span>
+                    <span>{timeSince(date)+" ago"}</span>
+                    <span>{likes.length}</span>
                 </div>
             </div>
             <div className={styles.like}>

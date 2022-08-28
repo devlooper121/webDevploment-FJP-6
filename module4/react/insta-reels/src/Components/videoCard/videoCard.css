@@ -2,40 +2,21 @@
     --videoCardWidth : 300px;
     --videoCardHeight : 540px;
 }
-
-.video {
-    width: var(--videoCardWidth);
-    height: var(--videoCardHeight);
-    position: fixed;
-    z-index: 0;
-    background: #000;
-
-}
 .action{
     width: var(--videoCardWidth);
     height: var(--videoCardHeight);
-    position: absolute;
+    position: relative;
     z-index: 10;
-    top: 90px;
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-}
-.shrink{
-    transform: scale(.35)
-    translateY(-90%);
 }
 .video-info{
     width: 75%;
     height: 50px;
-    margin-bottom: 20px;
-    margin-left: 10px;
-    position: relative;
+    position: absolute;
+    bottom: 15px;
+    left: 5px;
     z-index: 2;
 }
-.post.name{
-    color: #fff;
-}
+
 .post-info{
     width: 100%;
     display: flex;
@@ -49,8 +30,13 @@
 }
 .post-profile{
     width: 30px;
+    height: 30px;
+    object-fit: cover;
     margin-right: 10px;
     border-radius: 50%;
+}
+.post.name{
+    color: #fff;
 }
 .likeShare{
     list-style: none;
@@ -61,7 +47,9 @@
     height: 150px;
     justify-content: space-around;
     margin-bottom: 80px;
-    position: relative;
+    position: absolute;
+    right: 0;
+    bottom: 0;
     z-index: 2;
 }
 .like-list{
@@ -78,6 +66,24 @@
     'opsz' 48;
     color: #fff;
   }
+.video {
+    width: var(--videoCardWidth);
+    height: var(--videoCardHeight);
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    left: 0;
+    background: #000;
+
+}
+
+.shrink{
+    transform: scale(.35)
+    translateY(-90%);
+}
+
+
+
 
   /* kjhkjkjhkj */
 

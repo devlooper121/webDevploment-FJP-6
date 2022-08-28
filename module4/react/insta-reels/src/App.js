@@ -63,7 +63,7 @@ function App() {
  */
 function PrivateRoute(props){
   const Component = props.comp; // comp is defined by user wgich has the component name like Profile, Feed
-  const cUser = useContext(AuthContext);
+  const {cUser} = useContext(AuthContext);
   return(
     // ...propes make sure every prop property is passed to whoever is selected
     <Route
@@ -79,7 +79,7 @@ function PrivateRoute(props){
 }
 
 function RedirectToFeed(props){
-  const cUser = useContext(AuthContext);
+  const {cUser} = useContext(AuthContext);
   const Component = props.comp;
   // cUser--> null ? login: send to feed
   return (

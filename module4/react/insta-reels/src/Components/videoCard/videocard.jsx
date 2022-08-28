@@ -1,16 +1,33 @@
-import { useRef } from "react"
-import { useState } from "react"
+import { useState, useEffect, useRef } from "react"
 import Comment from "./comment"
 import YNBtn from "./PlayPauseBtn"
 
+import { findUserByUID, updateDocByCollection } from "../functions/util"
+
 import "./videoCard.css"
+import { useContext } from "react"
+import {AuthContext} from "../../Context/AuthContext"
 
-const link = "https://assets.mixkit.co/videos/preview/mixkit-mother-with-her-little-daughter-eating-a-marshmallow-in-nature-39764-large.mp4"
-
-export const VideoCard = () => {
+export const VideoCard = (props) => {
     const videoRef = useRef();
+    const {cUser} = useContext(AuthContext);
     const [playing, setPlay] = useState(false);
     const [videoShrink, setVideoShrink] = useState(false);
+    const [user, setUser] = useState(null);
+    const profileImgUrl = user ? user.profileImgUrls[0]:"https://idronline.org/wp-content/uploads/2021/01/Screen-Shot-2019-02-19-at-1.23.40-PM-300x300-3.jpg.webp";
+    const userName = user ? user.userId : "loding..."
+    useEffect(() => {
+        (async () => {
+            try {
+                // console.log(props.uid);
+                const user = await findUserByUID(props.uid);
+                setUser(user)
+                // console.log(user);
+            } catch (err) {
+                console.log(err.message);
+            }
+        })()
+    }, [])
     const playPause = () => {
         if (playing) {
             videoRef.current.play()
@@ -20,47 +37,57 @@ export const VideoCard = () => {
             setPlay(true)
         }
     }
+    const likeTheVideoHandler = (e) =>{
+        e.stopPropagation();
+        console.log("like");
+        if(!props.likes.includes(cUser.uid))
+            updateDocByCollection("reels", props.id, {
+                likes:[...props.likes, cUser.uid]
+            })
+    }
     return (
-        <>
-            <div className="video-card">
-                <div onClick={() => { console.log("actiom"); return 0 }} className="action">
-                    <div className="video-info ">
-                        <div className="post-info">
-                            <img className="post-profile" src="https://cdn.pixabay.com/photo/2015/03/04/22/35/avatar-659652__340.png" alt="" />
-                            <p className="post-name">dheeraj__007</p>
-                        </div>
-                        <p className="post-info"><span className="material-symbols-rounded">
-                            music_note
-                        </span>original-chinise</p>
-                    </div>
-                    <ul className="likeShare">
-                        <li className="like-list"><span className="material-symbols-rounded fill">
-                            favorite
-                        </span>23</li>
-                        <li onClick={() => setVideoShrink(true)} className="like-list"><span className="material-symbols-rounded fill">
-                            mode_comment
-                        </span>2</li>
-                        {/* <li className="like-list"><span className="material-symbols-rounded">
-                            send
-                        </span></li>
-                        <li className="like-list"><span className="material-symbols-rounded">
-                            more_vert
-                        </span></li> */}
-                    </ul>
-                    <YNBtn status={playing} onClick={playPause}/>
-                    <video 
-                        loop
-                        autoPlay
-                        className={videoShrink ? "shrink video" : "video"} 
-                        onClick={(e) => { console.log("video");setVideoShrink(false); return playPause() }} 
-                        src={link}
-                        ref={videoRef}
-                        >
-                    </video>
-                    {videoShrink && <Comment onBack={()=>setVideoShrink(false)}></Comment>}
+        <div onClick={() => { console.log("actiom"); return 0 }} className="action">
+            <div className="video-info">
+                <div className="post-info">
+                    <img className="post-profile" src={profileImgUrl} alt="" />
+                    <p className="post-name">{userName}</p>
                 </div>
+                <p className="post-info"><span className="material-symbols-rounded">
+                    music_note
+                </span>{props.title}</p>
             </div>
-        </>
+            <ul className="likeShare">
+                <li onClick={likeTheVideoHandler} className="like-list"><span className="material-symbols-rounded fill">
+                    favorite
+                </span>{props.likes.length}</li>
+                <li onClick={() => setVideoShrink(true)} className="like-list"><span className="material-symbols-rounded fill">
+                    mode_comment
+                </span>{props.comments.length}</li>
+                {/* <li className="like-list"><span className="material-symbols-rounded">
+                    send
+                </span></li>
+                <li className="like-list"><span className="material-symbols-rounded">
+                    more_vert
+                </span></li> */}
+            </ul>
+            <YNBtn status={playing} onClick={playPause}/>
+            <video 
+                loop
+                autoPlay
+                className={videoShrink ? "shrink video" : "video"} 
+                onClick={(e) => { console.log("video");setVideoShrink(false); return playPause() }} 
+                src={props.url}
+                ref={videoRef}
+                >
+            </video>
+            {videoShrink && 
+                <Comment 
+                    onBack={()=>setVideoShrink(false)}
+                    commentArr={props.comments}
+                    profileImgUrl={profileImgUrl}
+                    id={props.id}
+                ></Comment>}
+        </div>
     )
 }
 

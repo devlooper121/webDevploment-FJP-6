@@ -9,29 +9,33 @@
  .mainContainer{
     display: flex;
     width: 100vw;
+    height: 100vh;
     margin: auto;
-    margin-top: 60px;
     overflow: hidden;
  }
  .reelContainer-top{
     width: 53%;
-    display: flex;
-    justify-content: right;
     /* border: 1px solid red; */
-    max-height: 80vh;
-    overflow: auto;
-    padding-top: 30px;
+    padding-top: 80px;
+    overflow: scroll;
+    display: flex;
+    justify-content: end;
+    align-items: baseline;
  }
  .reelContainer-top::-webkit-scrollbar{
     display: none;
  }
- .reelContainer{
-    width: 470px;
-    padding: 0 10px;
- }
  .detailContainer{
     width: 47%;
+    padding-top: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     /* border: 1px solid red; */
+ }
+ .feedBtn{
+   height: 100%;
+   background-color: transparent !important;
  }
 
  

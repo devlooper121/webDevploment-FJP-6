@@ -4,7 +4,7 @@ import styles from "./ProgressBar.module.css"
 
 const ProgressBar = (props) => {
     
-    let currWidth = `${props.value % 100}%`
+    let currWidth = `${props.value}%`
 
     return (
         <div className={styles.progressBarCont}>
