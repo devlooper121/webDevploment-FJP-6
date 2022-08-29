@@ -1,11 +1,19 @@
-import { auth } from "../../firebase"
+import { auth, db, database } from "../../firebase"
 import { signOut } from "firebase/auth"
-import { db } from "../../firebase";
 import { doc, getDoc, setDoc, addDoc, collection, updateDoc, Timestamp } from "firebase/firestore";
 import Compress from "compress.js";
+// realtime
+import {ref, child, push, update  } from "firebase/database";
 // upload file with file ref and file
-import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
-import { storage } from "../../firebase";
+
+export const writeRTD = (collectionName, data) => {
+    const newDataKey = push(child(ref(database), collectionName)).key;
+    console.log(data, newDataKey);
+    const updates = {};
+    updates[`/${collectionName}/` + newDataKey] = data;
+    console.log(updates);
+    return update(ref(database), updates);
+}
 
 export const logOut = async () => {
     try {

@@ -8,7 +8,7 @@ import { AuthContext } from "../../Context/AuthContext"
 import styles from "./newPost.module.css"
 import ProgressBar from "./ProgressBar"
 // util
-import { findUserByUID, setData, updateDocByCollection } from "../functions/util"
+import { findUserByUID, setData, updateDocByCollection, writeRTD } from "../functions/util"
 // // firebase
 // import { db } from "../../firebase";
 // import { doc, updateDoc } from "firebase/firestore";
@@ -29,7 +29,6 @@ const NewPost = (props) => {
     // upload percentage
     
     const {
-        isUploading,
         uploadStatus:uploadPercentage,
         setUploadStatus,
         uploadFileHandler,
@@ -47,7 +46,7 @@ const NewPost = (props) => {
                 setLoding(false)
             }
         })()
-    }, [])
+    }, [cUser])
     const videoInputHandler = (e) => {
 
         // console.log(e.target.files);
@@ -73,6 +72,14 @@ const NewPost = (props) => {
                 likes:[],
                 isCommentable:true
             });
+            const newdata = await writeRTD("reels",{
+                url:url,
+                uid:cUser.uid,
+                comments:{},
+                likes:{},
+                isCommentable:true
+            })
+            console.log(newdata);
             updateDocByCollection("users", cUser.uid,{
                 postIds:[videoId, ...user.postIds]
             })
@@ -84,7 +91,7 @@ const NewPost = (props) => {
             <NavBar />
             {uploadPercentage && <ProgressBar value={uploadPercentage}/>}
             
-            <div className={styles["uploadArea"]}>
+            {loding ? "loding": <div className={styles["uploadArea"]}>
                 <div className={styles["videoFrame"]}>
                     <label htmlFor={styles.videoInput} className={styles.btn} ><span className="material-symbols-rounded">
                         {videoUrl ? "cached" : "add"}
@@ -96,7 +103,7 @@ const NewPost = (props) => {
                     </span></Button>}
                 </div>
 
-            </div>
+            </div>}
             {uploadPercentage===100 && <DropMessage onClick={()=>setUploadStatus(0)} msg={"Video uploaded successfully!"} />}
         </React.Fragment>
     )
